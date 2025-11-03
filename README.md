@@ -1,75 +1,17 @@
-# Nuxt Minimal Starter
+# Raffaele Longo Elia — Personal Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Minimal portfolio built with Nuxt 4 + Vue 3 and Tailwind CSS, styled like an oh‑my‑zsh terminal.
 
-## Setup
+- Website: https://raffaelelongoelia.dev
+- GitHub:  https://github.com/keteraf
+- LinkedIn: https://linkedin.com/in/raffaele-longo-elia
 
-Make sure to install dependencies:
+## Quick start
 
-```bash
-# npm
-npm install
+- npm install
+- npm run dev
 
-# pnpm
-pnpm install
+## Build & preview
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- npm run build
+- npm run preview
