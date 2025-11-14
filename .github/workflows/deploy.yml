@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
+    environment: production
     name: raffaelelongoelia.dev deployment
     steps:
       - name: Checkout repository
