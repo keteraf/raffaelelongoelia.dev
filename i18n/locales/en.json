@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "Raffaele Longo Elia",
+    "subtitle": "Web Developer",
+    "welcome": "Welcome to my interactive terminal portfolio",
+    "hint": "Type {command} to explore available commands"
+  },
+  "terminal": {
+    "help": {
+      "title": "Available commands:",
+      "whoami": "show user",
+      "ls": "list items",
+      "cd": "change directory",
+      "pwd": "print working directory",
+      "cat": "show about info",
+      "contact": "show contact links",
+      "projects": "list projects",
+      "echo": "print text",
+      "date": "show current time",
+      "clear": "clear the screen"
+    },
+    "whoami": "Raffaele Longo Elia - Web Developer",
+    "about": {
+      "intro": "Passionate web developer with expertise in:",
+      "skills": [
+        "PHP with Laravel Framework",
+        "MySQL/Postgres Database Design",
+        "API Development & Integration",
+        "DevOps & Server Management"
+      ]
+    },
+    "errors": {
+      "noSuchDir": "cd: no such file or directory: {path}",
+      "noSuchFile": "cat: {file}: No such file",
+      "unsupportedOption": "contact: unsupported option (try: contact --info)",
+      "commandNotFound": "{command}: command not found (try: help)"
+    }
+  }
+}
