@@ -9,6 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
     name: raffaelelongoelia.dev deployment
     steps:
       - name: Checkout repository
@@ -27,13 +28,6 @@ jobs:
         run: npm run generate
 
       - name: Deploy to OVH hosting
-#        uses: pitscher/ovh-deploy-hosting-action@v1
-#        env:
-#          OVH_HOSTING_USER: ${{ secrets.OVH_HOSTING_USER }}
-#          OVH_HOSTING_PASSWORD: ${{ secrets.OVH_HOSTING_PASSWORD }}
-#          OVH_HOSTING_DOMAIN: ${{ secrets.OVH_HOSTING_DOMAIN}}
-#          REPOSITORY_NAME: raffaelelongoelia.dev
-#          REPOSITORY_URL: https://github.com/keteraf/raffaelelongoelia.dev.git
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.OVH_HOSTING_DOMAIN }}
