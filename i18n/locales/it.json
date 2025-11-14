@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "Raffaele Longo Elia",
+    "subtitle": "Sviluppatore Web",
+    "welcome": "Benvenuto nel mio portfolio interattivo a terminale",
+    "hint": "Digita {command} per esplorare i comandi disponibili"
+  },
+  "terminal": {
+    "help": {
+      "title": "Comandi disponibili:",
+      "whoami": "mostra utente",
+      "ls": "elenca elementi",
+      "cd": "cambia directory",
+      "pwd": "mostra directory corrente",
+      "cat": "mostra informazioni",
+      "contact": "mostra contatti",
+      "projects": "elenca progetti",
+      "echo": "stampa testo",
+      "date": "mostra data e ora",
+      "clear": "pulisci schermo"
+    },
+    "whoami": "Raffaele Longo Elia - Sviluppatore Web",
+    "about": {
+      "intro": "Sviluppatore web appassionato con esperienza in:",
+      "skills": [
+        "PHP con Framework Laravel",
+        "Progettazione Database MySQL/Postgres",
+        "Sviluppo e Integrazione API",
+        "DevOps e Gestione Server"
+      ]
+    },
+    "errors": {
+      "noSuchDir": "cd: directory non trovata: {path}",
+      "noSuchFile": "cat: {file}: File non trovato",
+      "unsupportedOption": "contact: opzione non supportata (prova: contact --info)",
+      "commandNotFound": "{command}: comando non trovato (prova: help)"
+    }
+  }
+}
