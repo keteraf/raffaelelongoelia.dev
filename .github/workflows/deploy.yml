@@ -26,11 +26,15 @@ jobs:
 
       - name: Generate static site
         run: npm run generate
-
+        
+      - name: Decode OVH_HOSTING_DOMAIN # Because it has '/' inside
+        run: |
+          OVH_HOSTING_DOMAIN=$(echo "${{ secrets.OVH_HOSTING_DOMAIN }}" | base64 --decode)
+          echo "OVH_HOSTING_DOMAIN=$OVH_HOSTING_DOMAIN" >> $GITHUB_ENV
       - name: Deploy to OVH hosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.OVH_HOSTING_DOMAIN }}
+          server: $OVH_HOSTING_DOMAIN
           username: ${{ secrets.OVH_HOSTING_USER }}
           password: ${{ secrets.OVH_HOSTING_PASSWORD }}
           local-dir: ./dist/
