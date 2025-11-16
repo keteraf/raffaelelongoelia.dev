@@ -17,7 +17,8 @@
       "projects": "list projects",
       "echo": "print text",
       "date": "show current time",
-      "clear": "clear the screen"
+      "clear": "clear the screen",
+      "lang": "change language"
     },
     "whoami": "Raffaele Longo Elia - Web Developer",
     "about": {
@@ -29,11 +30,18 @@
         "DevOps & Server Management"
       ]
     },
+    "projects": {
+      "loading": "Fetching GitHub repositories...",
+      "empty": "No public repositories found"
+    },
     "errors": {
       "noSuchDir": "cd: no such file or directory: {path}",
       "noSuchFile": "cat: {file}: No such file",
       "unsupportedOption": "contact: unsupported option (try: contact --info)",
-      "commandNotFound": "{command}: command not found (try: help)"
-    }
+      "commandNotFound": "{command}: command not found (try: help)",
+      "githubFetchFailed": "Failed to fetch repositories from GitHub",
+      "invalidLang": "Invalid language: {lang}"
+    },
+    "langChanged": "Language changed"
   }
 }

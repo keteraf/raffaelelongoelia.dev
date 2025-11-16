@@ -19,7 +19,19 @@
             v-for="(item, i) in output.items"
             :key="i"
         >
-            {{ item }}
+            <template v-if="typeof item === 'string'">
+                {{ item }}
+            </template>
+            <template v-else>
+                <a
+                    class="hover:underline focus:underline outline-none"
+                    :href="item.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {{ item.label }}
+                </a>
+            </template>
         </div>
     </div>
     <div
@@ -38,10 +50,11 @@
 </template>
 
 <script setup lang="ts">
+type GridItem = string | { label: string, href: string }
 interface Output {
     type: 'lines' | 'grid' | 'raw' | 'links'
     lines?: string[]
-    items?: string[]
+    items?: GridItem[]
     text?: string
     github?: string
     linkedin?: string

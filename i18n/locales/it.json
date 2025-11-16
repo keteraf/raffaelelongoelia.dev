@@ -17,7 +17,8 @@
       "projects": "elenca progetti",
       "echo": "stampa testo",
       "date": "mostra data e ora",
-      "clear": "pulisci schermo"
+      "clear": "pulisci schermo",
+      "lang": "cambia lingua"
     },
     "whoami": "Raffaele Longo Elia - Sviluppatore Web",
     "about": {
@@ -29,11 +30,18 @@
         "DevOps e Gestione Server"
       ]
     },
+    "projects": {
+      "loading": "Recupero dei repository GitHub...",
+      "empty": "Nessun repository pubblico trovato"
+    },
     "errors": {
       "noSuchDir": "cd: directory non trovata: {path}",
       "noSuchFile": "cat: {file}: File non trovato",
       "unsupportedOption": "contact: opzione non supportata (prova: contact --info)",
-      "commandNotFound": "{command}: comando non trovato (prova: help)"
-    }
+      "commandNotFound": "{command}: comando non trovato (prova: help)",
+      "githubFetchFailed": "Impossibile recuperare i repository da GitHub",
+      "invalidLang": "Lingua non valida: {lang}"
+    },
+    "langChanged": "Lingua cambiata"
   }
 }
