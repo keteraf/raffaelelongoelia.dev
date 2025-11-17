@@ -35,4 +35,4 @@ jobs:
           password: ${{ secrets.OVH_HOSTING_PASSWORD }}
           local-dir: ./dist/
           server-dir: ${{ secrets.OVH_HOSTING_PATH }} # The remote directory on the server
-          protocol: ftps # Change to 'ftps' for secure FTP if needed
+          protocol: ftp
