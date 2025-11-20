@@ -46,7 +46,7 @@
                         autocomplete="off"
                         autocapitalize="off"
                         autocorrect="off"
-                        @keydown.enter.prevent="handleEnter"
+                        @keydown="handleKeydown"
                     >
                 </TerminalPrompt>
             </div>
@@ -66,11 +66,42 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { time, rprompt, startTimer, stopTimer } = useTime()
-const { input, inputEl, history, cwd, gitDirty, exitOk, focusInput, handleEnter, initializeTerminal, resetTerminalState } = useTerminal()
+const {
+    input, inputEl, history, cwd, gitDirty, exitOk, focusInput,
+    handleEnter, handleTab, navigateHistoryUp, navigateHistoryDown,
+    clearScreen, initializeTerminal, resetTerminalState,
+} = useTerminal()
 const terminalWindow = ref()
 const windowState = ref('closed')
+
+const handleKeydown = (e: KeyboardEvent) => {
+    if (e.key === 'Enter') {
+        e.preventDefault()
+        handleEnter()
+    }
+    else if (e.key === 'ArrowUp') {
+        e.preventDefault()
+        navigateHistoryUp()
+    }
+    else if (e.key === 'ArrowDown') {
+        e.preventDefault()
+        navigateHistoryDown()
+    }
+    else if (e.key === 'Tab') {
+        e.preventDefault()
+        handleTab()
+    }
+    else if (e.ctrlKey && e.key === 'c') {
+        e.preventDefault()
+        input.value = ''
+    }
+    else if (e.ctrlKey && e.key === 'l') {
+        e.preventDefault()
+        clearScreen()
+    }
+}
 
 const closeTerminal = () => {
     windowState.value = 'closed'

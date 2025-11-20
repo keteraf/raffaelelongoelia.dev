@@ -1,184 +1,119 @@
-type GridItem = string | { label: string, href: string }
-type CommandOutput = { type: string, lines?: string[], text?: string, items?: GridItem[], github?: string, linkedin?: string }
-type HistoryEntry = { cmd: string, cwd: string, rprompt: string, gitDirty: boolean, ok: boolean, output: CommandOutput }
-type CommandResult = { ok: boolean, output: CommandOutput, nextCwd?: string }
+import { COMMANDS } from './terminal/commands'
+import type { CommandOutput, HistoryEntry } from './terminal/types'
+import type { VirtualPath } from './terminal/virtualFs'
+import { useGithubRepos } from './terminal/useGithubRepos'
+import { useHistory } from './terminal/useHistory'
+import { useTabCompletion } from './terminal/useTabCompletion'
 
 export const useTerminal = () => {
     const { t, tm, rt, setLocale } = useI18n()
     const input = ref('')
     const inputEl = ref<HTMLInputElement | null>(null)
-    const history = ref<HistoryEntry[]>([])
-    const cwd = ref('~')
+    const cwd = ref<VirtualPath>('~')
     const gitDirty = ref(false)
     const exitOk = ref(true)
-    // GitHub repositories state (public repos for user `keteraf`)
-    const ghRepos = ref<Array<{ label: string, href: string }> | null>(null)
-    const ghLoading = ref(false)
-    const ghError = ref<string | null>(null)
 
-    const focusInput = () => {
-        if (inputEl.value) inputEl.value.focus()
+    const { ghRepos, ghLoading, ghError, fetchGithubRepos } = useGithubRepos()
+    const { displayHistory, push, navigateUp, navigateDown, reset: resetHistory } = useHistory()
+    const { complete: tabComplete, reset: resetTab } = useTabCompletion(COMMANDS)
+
+    const focusInput = () => inputEl.value?.focus()
+
+    const makeCtx = (args: string[] = []) => ({
+        args,
+        cwd: cwd.value,
+        t,
+        tm,
+        rt,
+        setLocale,
+        ghRepos,
+        ghLoading,
+        ghError,
+    })
+
+    const currentRprompt = (): string => {
+        const d = new Date()
+        const hh = String(d.getHours()).padStart(2, '0')
+        const mm = String(d.getMinutes()).padStart(2, '0')
+        return `[${hh}:${mm}]`
     }
 
-    const pushHistory = (cmd: string, output: CommandOutput, ok = true) => {
-        const { rprompt } = useTime()
-        history.value.push({
-            cmd,
-            cwd: cwd.value,
-            rprompt: rprompt.value,
-            gitDirty: gitDirty.value,
-            ok,
-            output,
-        })
-    }
+    const makeEntry = (cmd: string, output: CommandOutput, ok: boolean): HistoryEntry => ({
+        cmd,
+        cwd: cwd.value,
+        rprompt: currentRprompt(),
+        gitDirty: gitDirty.value,
+        ok,
+        output,
+    })
 
     const runCommand = (command: string) => {
-        const parts = command.split(/\s+/)
-        const base = parts[0] || ''
+        const parts = command.trim().split(/\s+/)
+        const base = parts[0] ?? ''
         const args = parts.slice(1)
-
-        const lines = (arr: string[]) => ({ type: 'lines', lines: arr })
-        const raw = (text: string) => ({ type: 'raw', text })
-        const grid = (items: GridItem[]) => ({ type: 'grid', items })
-        const links = (github: string, linkedin: string) => ({ type: 'links', github, linkedin })
-
-        const ROOT_ITEMS = ['projects/', 'about.txt', 'contact']
-        const localFallbackProjects: GridItem[] = ['projects loading...']
-
-        const projectsList = () => {
-            if (ghLoading.value) return [t('terminal.projects.loading')]
-            if (ghError.value) return [t('terminal.errors.githubFetchFailed')]
-            if (!ghRepos.value) return localFallbackProjects
-            if (ghRepos.value.length === 0) return [t('terminal.projects.empty')]
-            return ghRepos.value
+        const cmdDef = COMMANDS[base]
+        if (!cmdDef) {
+            return {
+                ok: false,
+                output: { type: 'raw' as const, text: t('terminal.errors.commandNotFound', { command: base }) },
+            }
         }
-
-        const commands: Record<string, () => CommandResult> = {
-            help: () => ({ ok: true, output: lines([
-                t('terminal.help.title'),
-                `  whoami            → ${t('terminal.help.whoami')}`,
-                `  ls                → ${t('terminal.help.ls')}`,
-                `  cd [~|projects]   → ${t('terminal.help.cd')}`,
-                `  pwd               → ${t('terminal.help.pwd')}`,
-                `  cat about.txt     → ${t('terminal.help.cat')}`,
-                `  contact --info    → ${t('terminal.help.contact')}`,
-                `  projects          → ${t('terminal.help.projects')}`,
-                `  echo <text>       → ${t('terminal.help.echo')}`,
-                `  date              → ${t('terminal.help.date')}`,
-                `  clear             → ${t('terminal.help.clear')}`,
-                `  lang [en|it]      → ${t('terminal.help.lang')}`,
-            ]) }),
-            whoami: () => ({ ok: true, output: raw(t('terminal.whoami')) }),
-            pwd: () => ({ ok: true, output: raw(cwd.value) }),
-            date: () => ({ ok: true, output: raw(new Date().toString()) }),
-            echo: () => ({ ok: true, output: raw(args.join(' ')) }),
-            cd: () => {
-                const to = args[0] || '~'
-                if (to === '~' || to === '/') return { ok: true, output: raw(''), nextCwd: '~' }
-                if (to === 'projects' || to === '~/projects' || to === 'projects/') return { ok: true, output: raw(''), nextCwd: '~/projects' }
-                return { ok: false, output: raw(t('terminal.errors.noSuchDir', { path: to })) }
-            },
-            ls: () => cwd.value === '~/projects'
-                ? { ok: true, output: grid(projectsList()) }
-                : { ok: true, output: lines(ROOT_ITEMS) },
-            projects: () => ({ ok: true, output: grid(projectsList()) }),
-            cat: () => {
-                const target = args[0]
-                if (!target) return { ok: false, output: raw(t('terminal.errors.noSuchFile', { file: '' })) }
-                if (target === 'about.txt' && cwd.value === '~') {
-                    const skills = tm('terminal.about.skills') as string[]
-                    return { ok: true, output: lines([
-                        t('terminal.about.intro'),
-                        ...skills.map(s => `• ${rt(s)}`),
-                    ]) }
-                }
-                return { ok: false, output: raw(t('terminal.errors.noSuchFile', { file: target })) }
-            },
-            contact: () => args[0] === '--info'
-                ? { ok: true, output: links('https://github.com/keteraf', 'https://linkedin.com/in/raffaele-longo-elia') }
-                : { ok: false, output: raw(t('terminal.errors.unsupportedOption')) },
-            lang: () => {
-                const lang = args[0]
-                if (lang === 'en' || lang === 'it') {
-                    setLocale(lang).then()
-                    return { ok: true, output: raw(t('terminal.langChanged')) }
-                }
-                return { ok: false, output: raw(t('terminal.errors.invalidLang', { lang: lang || '' })) }
-            },
-        }
-
-        return commands[base]?.() ?? { ok: false, output: raw(t('terminal.errors.commandNotFound', { command: base })), nextCwd: undefined }
-    }
-
-    const fetchGithubRepos = async () => {
-        try {
-            ghLoading.value = true
-            ghError.value = null
-            // Fetch public repositories for the GitHub user `keteraf`
-            const url = 'https://api.github.com/users/keteraf/repos?per_page=100&type=public&sort=updated'
-            const data: any[] = await $fetch(url, {
-                headers: {
-                    // Encourage lighter payload; GitHub ignores but kept explicit
-                    Accept: 'application/vnd.github+json',
-                },
-            })
-            ghRepos.value = (data || [])
-                .map(r => ({ name: r?.name as string | undefined, url: r?.html_url as string | undefined }))
-                .filter(r => typeof r.name === 'string' && r.name && typeof r.url === 'string' && r.url)
-                .map(r => ({ label: `${r.name!}/`, href: r.url! }))
-                .sort((a, b) => a.label.localeCompare(b.label))
-        } catch (e) {
-            ghError.value = 'fetch-failed'
-            ghRepos.value = []
-        } finally {
-            ghLoading.value = false
-        }
+        return cmdDef.handler(makeCtx(args))
     }
 
     const handleEnter = () => {
         const command = input.value.trim()
         if (!command) return
+        resetTab()
 
         if (command === 'clear') {
-            history.value = []
+            clearScreen()
             input.value = ''
-            exitOk.value = true
             return
         }
 
+        const entry = makeEntry(command, { type: 'raw', text: '' }, true) // cwd snapshot before navigation
         const { output, ok, nextCwd } = runCommand(command)
-        if (nextCwd) cwd.value = nextCwd
+        if (nextCwd) cwd.value = nextCwd as VirtualPath
 
-        pushHistory(command, output, ok)
-        exitOk.value = Boolean(ok)
-
+        push({ ...entry, output, ok })
+        exitOk.value = ok
         input.value = ''
-        nextTick(() => focusInput()).then()
+        nextTick(() => focusInput())
+    }
+
+    const handleTab = () => {
+        input.value = tabComplete(input.value, makeCtx())
+    }
+
+    const navigateHistoryUp = () => {
+        input.value = navigateUp(input.value)
+        resetTab()
+    }
+
+    const navigateHistoryDown = () => {
+        input.value = navigateDown()
+        resetTab()
+    }
+
+    const clearScreen = () => {
+        resetHistory()
+        exitOk.value = true
     }
 
     const initializeTerminal = () => {
         gitDirty.value = Number(new Date().getMinutes()) % 2 === 1
-        // Show a header hint when the terminal opens
-        // Inform users they can type `help` to see all available commands
-        pushHistory(
-            '',
-            {
-                type: 'lines',
-                lines: [
-                    t('hero.welcome'),
-                    t('hero.hint', { command: 'help' }),
-                ],
-            },
-            true,
-        )
-        // Warm up GitHub repositories in the background so `cd projects` + `ls` can show real data.
-        fetchGithubRepos().then()
-        nextTick(() => focusInput()).then()
+        push(makeEntry('', {
+            type: 'lines',
+            lines: [t('hero.welcome'), t('hero.hint', { command: 'help' })],
+        }, true))
+        fetchGithubRepos()
+        nextTick(() => focusInput())
     }
 
     const resetTerminalState = () => {
         input.value = ''
-        history.value = []
+        resetHistory()
         cwd.value = '~'
         exitOk.value = true
         initializeTerminal()
@@ -187,15 +122,18 @@ export const useTerminal = () => {
     return {
         input,
         inputEl,
-        history: readonly(history),
+        history: displayHistory,
         cwd: readonly(cwd),
         gitDirty: readonly(gitDirty),
         exitOk: readonly(exitOk),
         focusInput,
         handleEnter,
+        handleTab,
+        navigateHistoryUp,
+        navigateHistoryDown,
+        clearScreen,
         initializeTerminal,
         resetTerminalState,
-        // expose for potential future uses
         fetchGithubRepos,
     }
 }

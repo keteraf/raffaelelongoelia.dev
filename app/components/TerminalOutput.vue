@@ -50,18 +50,10 @@
 </template>
 
 <script setup lang="ts">
-type GridItem = string | { label: string, href: string }
-interface Output {
-    type: 'lines' | 'grid' | 'raw' | 'links'
-    lines?: string[]
-    items?: GridItem[]
-    text?: string
-    github?: string
-    linkedin?: string
-}
+import type { CommandOutput } from '../composables/terminal/types'
 
 interface Props {
-    output?: Output
+    output?: CommandOutput
 }
 
 defineProps<Props>()
