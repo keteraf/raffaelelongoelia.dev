@@ -73,8 +73,9 @@ export const useTerminal = () => {
         }
 
         const entry = makeEntry(command, { type: 'raw', text: '' }, true) // cwd snapshot before navigation
-        const { output, ok, nextCwd } = runCommand(command)
+        const { output, ok, nextCwd, openUrl } = runCommand(command)
         if (nextCwd) cwd.value = nextCwd as VirtualPath
+        if (openUrl) window.open(openUrl, '_blank', 'noopener,noreferrer')
 
         push({ ...entry, output, ok })
         exitOk.value = ok

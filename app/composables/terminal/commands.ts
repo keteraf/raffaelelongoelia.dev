@@ -52,14 +52,24 @@ export const COMMANDS: Record<string, CommandDef> = {
         handler: () => ({ ok: true, output: raw('') }),
     },
     cd: {
-        handler: ({ args, cwd, t }) => {
+        handler: ({ args, cwd, t, ghRepos }) => {
             const to = args[0] || '~'
             const next = resolvePath(cwd as VirtualPath, to)
             if (next !== null) return { ok: true, output: raw(''), nextCwd: next }
             if (to === '..') return { ok: true, output: raw(''), nextCwd: cwd } // already at root, stay silently
+            if (cwd === '~/projects' && ghRepos.value) {
+                const repo = ghRepos.value.find(r => r.label === to)
+                if (repo) return { ok: true, output: raw(t('terminal.cd.openingRepo', { repo: to })), openUrl: repo.href }
+            }
             return { ok: false, output: raw(t('terminal.errors.noSuchDir', { path: to })) }
         },
-        argCompletions: ({ cwd }) => cdCompletions(cwd as VirtualPath),
+        argCompletions: ({ cwd, ghRepos }) => {
+            const base = cdCompletions(cwd as VirtualPath)
+            if (cwd === '~/projects' && ghRepos.value) {
+                return [...base, ...ghRepos.value.map(r => r.label)]
+            }
+            return base
+        },
     },
     ls: {
         handler: ctx => ctx.cwd === '~/projects'

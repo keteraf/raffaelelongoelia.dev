@@ -1,12 +1,12 @@
 <template>
-    <div class="min-h-screen bg-[#0a0a0a] text-gray-200 font-mono flex items-center justify-center p-4">
+    <div class="min-h-screen bg-[#090d12] text-gray-200 font-mono flex items-center justify-center p-4">
         <HeroSection v-if="!classicMode && windowState !== 'maximized'">
             <div class="flex gap-4">
-                <NewTerminalButton
+              <ClassicModeButton @click="openClassic" />
+              <NewTerminalButton
                     v-if="windowState === 'closed'"
                     @click="openTerminal"
                 />
-                <ClassicModeButton @click="openClassic" />
             </div>
         </HeroSection>
 
@@ -32,7 +32,7 @@
                 @minimize="minimizeTerminal"
                 @focus="focusInput"
             >
-                <div class="space-y-3">
+                <div class="space-y-4">
                     <div
                         v-for="(h, i) in history"
                         :key="i"
@@ -53,17 +53,16 @@
                         :rprompt="rprompt"
                         :git-dirty="gitDirty"
                         :ok="exitOk"
-                        margin-class="mt-2"
+                        margin-class=""
                         @click="focusInput"
                     >
                         <input
                             ref="inputEl"
                             v-model="input"
-                            class="ml-2 bg-transparent border-none outline-none text-neutral-200 caret-emerald-400 w-[60vw] md:w-[40rem] text-base font-mono"
+                            class="bg-transparent border-none outline-none text-neutral-200 caret-emerald-400 w-[60vw] md:w-160 text-sm font-mono"
                             spellcheck="false"
                             autocomplete="off"
                             autocapitalize="off"
-                            autocorrect="off"
                             @keydown="handleKeydown"
                         >
                     </TerminalPrompt>
@@ -76,7 +75,7 @@
             class="fixed bottom-4 left-4"
         >
             <button
-                class="px-4 py-2 bg-[#0c0c0c] border border-neutral-800/80 rounded-lg hover:bg-[#0e0e0e] transition-colors text-xs text-neutral-400"
+                class="px-4 py-2 bg-[#161b22] border border-white/[0.07] rounded-lg hover:bg-[#1c2128] transition-colors text-xs text-neutral-400 font-mono"
                 @click="restoreTerminal"
             >
                 raffaelelongoelia.dev

@@ -13,6 +13,7 @@ export interface CommandResult {
     ok: boolean
     output: CommandOutput
     nextCwd?: string
+    openUrl?: string
 }
 
 export interface HistoryEntry {

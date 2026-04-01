@@ -48,6 +48,9 @@
       "githubFetchFailed": "Failed to fetch repositories from GitHub",
       "invalidLang": "Invalid language: {lang}"
     },
+    "cd": {
+      "openingRepo": "Opening {repo} on GitHub..."
+    },
     "langChanged": "Language changed"
   }
 }

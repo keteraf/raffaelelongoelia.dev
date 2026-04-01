@@ -48,6 +48,9 @@
       "githubFetchFailed": "Impossibile recuperare i repository da GitHub",
       "invalidLang": "Lingua non valida: {lang}"
     },
+    "cd": {
+      "openingRepo": "Apertura di {repo} su GitHub..."
+    },
     "langChanged": "Lingua cambiata"
   }
 }

@@ -1,6 +1,6 @@
 export type VirtualPath = '~' | '~/projects'
 
-export const ROOT_ITEMS = ['projects/', 'about.txt', 'contact'] as const
+export const ROOT_ITEMS = ['projects/', 'about.txt'] as const
 
 export function resolvePath(current: VirtualPath, target: string): VirtualPath | null {
     if (target === '~' || target === '/') return '~'
