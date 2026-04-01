@@ -6,30 +6,60 @@
             windowState === 'minimized' ? 'scale-0 opacity-0' : 'scale-100 opacity-100',
         ]"
     >
-        <div class="rounded-xl border border-neutral-800/80 shadow-2xl overflow-hidden bg-[#0c0c0c] h-full flex flex-col">
-            <div class="flex items-center justify-between px-4 py-2 border-b border-neutral-800/80 bg-[#0e0e0e]">
-                <div class="flex items-center gap-2">
+        <div
+            :class="[
+                'border border-white/[0.07] shadow-2xl overflow-hidden bg-[#0d1117] h-full flex flex-col',
+                windowState === 'maximized' ? 'rounded-none' : 'rounded-xl',
+            ]"
+        >
+            <!-- Title bar -->
+            <div class="grid grid-cols-3 items-center px-4 py-2.5 border-b border-white/[0.06] bg-[#161b22] shrink-0">
+                <!-- Traffic lights -->
+                <div class="flex items-center gap-1.5">
                     <button
-                        class="w-3 h-3 rounded-full bg-[#ff5f56] hover:bg-[#ff1a1a] hover:scale-110 transition-all cursor-pointer"
+                        class="w-3 h-3 rounded-full bg-[#ff5f57] transition-all cursor-pointer group relative"
                         @click="$emit('close')"
-                    />
+                    >
+                        <span
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 text-[#6e0902] font-bold leading-none"
+                            style="font-size: 8px"
+                        >✕</span>
+                    </button>
                     <button
-                        class="w-3 h-3 rounded-full bg-[#ffbd2e] hover:bg-[#ff8c00] hover:scale-110 transition-all cursor-pointer"
-                        @click="$emit('maximize')"
-                    />
-                    <button
-                        class="w-3 h-3 rounded-full bg-[#27c93f] hover:bg-[#00ff00] hover:scale-110 transition-all cursor-pointer"
+                        class="w-3 h-3 rounded-full bg-[#febc2e] transition-all cursor-pointer group relative"
                         @click="$emit('minimize')"
-                    />
-                    <span class="ml-3 text-xs text-neutral-400">raffaelelongoelia.dev</span>
+                    >
+                        <span
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 text-[#985702] font-bold leading-none"
+                            style="font-size: 10px"
+                        >−</span>
+                    </button>
+                    <button
+                        class="w-3 h-3 rounded-full bg-[#28c840] transition-all cursor-pointer group relative"
+                        @click="$emit('maximize')"
+                    >
+                        <span
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 text-[#006500] font-bold leading-none"
+                            style="font-size: 8px"
+                        >+</span>
+                    </button>
                 </div>
-                <div class="text-xs text-neutral-500">
+                <!-- Center title -->
+                <div class="flex items-center justify-center gap-2 text-xs text-neutral-500 select-none">
+                    <span class="text-neutral-400 font-medium">zsh</span>
+                    <span class="text-neutral-700">·</span>
+                    <span class="text-neutral-600">raffaelelongoelia.dev</span>
+                </div>
+                <!-- Time -->
+                <div class="flex justify-end text-xs text-neutral-600 tabular-nums font-mono">
                     {{ time }}
                 </div>
             </div>
+
+            <!-- Content -->
             <div
                 ref="scrollContainer"
-                class="p-6 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.04),transparent_60%)] flex-1 overflow-y-auto terminal-scroll cursor-text"
+                class="px-5 py-4 flex-1 overflow-y-auto terminal-scroll cursor-text"
                 @click="$emit('focus')"
             >
                 <slot />
@@ -66,19 +96,19 @@ defineExpose({ scrollToBottom })
 
 <style scoped>
 .terminal-scroll::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .terminal-scroll::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: transparent;
 }
 
 .terminal-scroll::-webkit-scrollbar-thumb {
-  background: #404040;
-  border-radius: 4px;
+  background: #30363d;
+  border-radius: 3px;
 }
 
 .terminal-scroll::-webkit-scrollbar-thumb:hover {
-  background: #525252;
+  background: #484f58;
 }
 </style>

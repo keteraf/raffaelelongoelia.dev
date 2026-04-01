@@ -2,8 +2,14 @@
   "hero": {
     "title": "Raffaele Longo Elia",
     "subtitle": "Web Developer",
-    "welcome": "Welcome to my interactive terminal portfolio",
-    "hint": "Type {command} to explore available commands"
+    "welcome": "Welcome to my portfolio",
+    "hint": "Choose how you'd like to explore",
+    "terminalMode": "Terminal",
+    "classicMode": "Classic"
+  },
+  "classic": {
+    "comingSoon": "Classic mode is coming soon",
+    "back": "← Back"
   },
   "terminal": {
     "help": {
@@ -41,6 +47,9 @@
       "commandNotFound": "{command}: command not found (try: help)",
       "githubFetchFailed": "Failed to fetch repositories from GitHub",
       "invalidLang": "Invalid language: {lang}"
+    },
+    "cd": {
+      "openingRepo": "Opening {repo} on GitHub..."
     },
     "langChanged": "Language changed"
   }
