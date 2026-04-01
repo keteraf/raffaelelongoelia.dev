@@ -2,8 +2,8 @@
     <div class="min-h-screen bg-[#090d12] text-gray-200 font-mono flex items-center justify-center p-4">
         <HeroSection v-if="!classicMode && windowState !== 'maximized'">
             <div class="flex gap-4">
-              <ClassicModeButton @click="openClassic" />
-              <NewTerminalButton
+                <ClassicModeButton @click="openClassic" />
+                <NewTerminalButton
                     v-if="windowState === 'closed'"
                     @click="openTerminal"
                 />
