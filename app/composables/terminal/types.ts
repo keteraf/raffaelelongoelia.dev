@@ -3,9 +3,9 @@ import type { Ref } from 'vue'
 export type GhRepo = { label: string, href: string }
 export type GridItem = string | GhRepo
 
-export type OutputLines = { type: 'lines', lines: string[] }
+export type OutputLines = { type: 'lines', lines: readonly string[] }
 export type OutputRaw = { type: 'raw', text: string }
-export type OutputGrid = { type: 'grid', items: GridItem[] }
+export type OutputGrid = { type: 'grid', items: readonly GridItem[] }
 export type OutputLinks = { type: 'links', github: string, linkedin: string }
 export type CommandOutput = OutputLines | OutputRaw | OutputGrid | OutputLinks
 

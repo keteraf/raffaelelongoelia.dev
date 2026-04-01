@@ -10,7 +10,7 @@
             <div class="text-neutral-500 space-y-2">
                 <p>{{ $t('hero.welcome') }}</p>
                 <p class="text-sm">
-                    {{ $t('hero.hint', { command: 'help' }) }}
+                    {{ $t('hero.hint') }}
                 </p>
             </div>
         </div>

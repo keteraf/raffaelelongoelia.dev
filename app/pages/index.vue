@@ -1,56 +1,75 @@
 <template>
     <div class="min-h-screen bg-[#0a0a0a] text-gray-200 font-mono flex items-center justify-center p-4">
-        <HeroSection v-if="windowState === 'closed'">
-            <NewTerminalButton @click="openTerminal" />
+        <HeroSection v-if="!classicMode && windowState !== 'maximized'">
+            <div class="flex gap-4">
+                <NewTerminalButton
+                    v-if="windowState === 'closed'"
+                    @click="openTerminal"
+                />
+                <ClassicModeButton @click="openClassic" />
+            </div>
         </HeroSection>
 
-        <TerminalWindow
-            v-else
-            ref="terminalWindow"
-            :time="time"
-            :window-state="windowState"
-            @close="closeTerminal"
-            @maximize="toggleMaximize"
-            @minimize="minimizeTerminal"
-            @focus="focusInput"
-        >
-            <div class="space-y-3">
-                <div
-                    v-for="(h, i) in history"
-                    :key="i"
-                >
-                    <TerminalPrompt
-                        :cwd="h.cwd"
-                        :command="h.cmd"
-                        :rprompt="h.rprompt"
-                        :git-dirty="h.gitDirty"
-                        :ok="h.ok"
-                    />
-                    <TerminalOutput :output="h.output" />
-                </div>
+        <ClassicView
+            v-if="classicMode"
+            @back="closeClassic"
+        />
 
-                <TerminalPrompt
-                    :cwd="cwd"
-                    command=""
-                    :rprompt="rprompt"
-                    :git-dirty="gitDirty"
-                    :ok="exitOk"
-                    margin-class="mt-2"
-                    @click="focusInput"
-                >
-                    <input
-                        ref="inputEl"
-                        v-model="input"
-                        class="ml-2 bg-transparent border-none outline-none text-neutral-200 caret-emerald-400 w-[60vw] md:w-[40rem] text-base font-mono"
-                        spellcheck="false"
-                        autocomplete="off"
-                        autocapitalize="off"
-                        autocorrect="off"
-                        @keydown="handleKeydown"
+        <div
+            v-if="windowState !== 'closed'"
+            :class="[
+                'fixed inset-0 flex items-center justify-center p-4',
+                windowState === 'minimized' ? 'pointer-events-none' : '',
+            ]"
+        >
+            <TerminalWindow
+                ref="terminalWindow"
+                :time="time"
+                :window-state="windowState"
+                class="pointer-events-auto"
+                @close="closeTerminal"
+                @maximize="toggleMaximize"
+                @minimize="minimizeTerminal"
+                @focus="focusInput"
+            >
+                <div class="space-y-3">
+                    <div
+                        v-for="(h, i) in history"
+                        :key="i"
                     >
-                </TerminalPrompt>
-            </div>
-        </TerminalWindow>
+                        <TerminalPrompt
+                            :cwd="h.cwd"
+                            :command="h.cmd"
+                            :rprompt="h.rprompt"
+                            :git-dirty="h.gitDirty"
+                            :ok="h.ok"
+                        />
+                        <TerminalOutput :output="h.output" />
+                    </div>
+
+                    <TerminalPrompt
+                        :cwd="cwd"
+                        command=""
+                        :rprompt="rprompt"
+                        :git-dirty="gitDirty"
+                        :ok="exitOk"
+                        margin-class="mt-2"
+                        @click="focusInput"
+                    >
+                        <input
+                            ref="inputEl"
+                            v-model="input"
+                            class="ml-2 bg-transparent border-none outline-none text-neutral-200 caret-emerald-400 w-[60vw] md:w-[40rem] text-base font-mono"
+                            spellcheck="false"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            autocorrect="off"
+                            @keydown="handleKeydown"
+                        >
+                    </TerminalPrompt>
+                </div>
+            </TerminalWindow>
+        </div>
 
         <div
             v-if="windowState === 'minimized'"
@@ -74,7 +93,8 @@ const {
     clearScreen, initializeTerminal, resetTerminalState,
 } = useTerminal()
 const terminalWindow = ref()
-const windowState = ref('closed')
+const windowState = ref<'closed' | 'normal' | 'maximized' | 'minimized'>('closed')
+const classicMode = ref(false)
 
 const handleKeydown = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
@@ -110,6 +130,14 @@ const closeTerminal = () => {
 
 const openTerminal = () => {
     windowState.value = 'normal'
+}
+
+const openClassic = () => {
+    classicMode.value = true
+}
+
+const closeClassic = () => {
+    classicMode.value = false
 }
 
 const toggleMaximize = () => {

@@ -2,8 +2,14 @@
   "hero": {
     "title": "Raffaele Longo Elia",
     "subtitle": "Sviluppatore Web",
-    "welcome": "Benvenuto nel mio portfolio interattivo a terminale",
-    "hint": "Digita {command} per esplorare i comandi disponibili"
+    "welcome": "Benvenuto nel mio portfolio",
+    "hint": "Scegli come vuoi esplorare",
+    "terminalMode": "Terminale",
+    "classicMode": "Classico"
+  },
+  "classic": {
+    "comingSoon": "La modalità classica è in arrivo",
+    "back": "← Indietro"
   },
   "terminal": {
     "help": {
