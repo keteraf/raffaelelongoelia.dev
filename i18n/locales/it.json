@@ -1,39 +1,39 @@
 {
   "hero": {
     "title": "Raffaele Longo Elia",
-    "subtitle": "Sviluppatore Web",
-    "welcome": "Benvenuto nel mio portfolio",
-    "hint": "Scegli come vuoi esplorare",
+    "subtitle": "Sviluppatore Web Full-Stack",
+    "welcome": "Esplora il mio portfolio di sviluppo web",
+    "hint": "Scegli la tua esperienza qui sotto",
     "terminalMode": "Terminale",
     "classicMode": "Classico"
   },
   "classic": {
-    "comingSoon": "La modalità classica è in arrivo",
+    "comingSoon": "La modalità classica è in arrivo — resta aggiornato",
     "back": "← Indietro"
   },
   "terminal": {
     "help": {
       "title": "Comandi disponibili:",
-      "whoami": "mostra utente",
-      "ls": "elenca elementi",
+      "whoami": "mostra profilo",
+      "ls": "elenca contenuto directory",
       "cd": "cambia directory",
       "pwd": "mostra directory corrente",
-      "cat": "mostra informazioni",
+      "cat": "mostra info e competenze",
       "contact": "mostra contatti",
-      "projects": "elenca progetti",
+      "projects": "sfoglia progetti GitHub",
       "echo": "stampa testo",
-      "date": "mostra data e ora",
-      "clear": "pulisci schermo",
+      "date": "mostra data e ora corrente",
+      "clear": "pulisci il terminale",
       "lang": "cambia lingua"
     },
-    "whoami": "Raffaele Longo Elia - Sviluppatore Web",
+    "whoami": "Raffaele Longo Elia — Sviluppatore Web Full-Stack",
     "about": {
-      "intro": "Sviluppatore web appassionato con esperienza in:",
+      "intro": "Sviluppatore web full-stack specializzato in:",
       "skills": [
-        "PHP con Framework Laravel",
-        "Progettazione Database MySQL/Postgres",
-        "Sviluppo e Integrazione API",
-        "DevOps e Gestione Server"
+        "PHP e Laravel Framework",
+        "Progettazione Database MySQL e PostgreSQL",
+        "Sviluppo e Integrazione API RESTful",
+        "DevOps, CI/CD e Gestione Server"
       ]
     },
     "projects": {

@@ -1,39 +1,39 @@
 {
   "hero": {
     "title": "Raffaele Longo Elia",
-    "subtitle": "Web Developer",
-    "welcome": "Welcome to my portfolio",
-    "hint": "Choose how you'd like to explore",
+    "subtitle": "Full-Stack Web Developer",
+    "welcome": "Explore My Web Development Portfolio",
+    "hint": "Choose your experience below",
     "terminalMode": "Terminal",
     "classicMode": "Classic"
   },
   "classic": {
-    "comingSoon": "Classic mode is coming soon",
+    "comingSoon": "Classic mode coming soon — stay tuned",
     "back": "← Back"
   },
   "terminal": {
     "help": {
       "title": "Available commands:",
-      "whoami": "show user",
-      "ls": "list items",
+      "whoami": "show profile",
+      "ls": "list directory contents",
       "cd": "change directory",
       "pwd": "print working directory",
-      "cat": "show about info",
+      "cat": "show about & skills",
       "contact": "show contact links",
-      "projects": "list projects",
+      "projects": "browse GitHub projects",
       "echo": "print text",
-      "date": "show current time",
-      "clear": "clear the screen",
-      "lang": "change language"
+      "date": "show current date & time",
+      "clear": "clear terminal screen",
+      "lang": "switch language"
     },
-    "whoami": "Raffaele Longo Elia - Web Developer",
+    "whoami": "Raffaele Longo Elia — Full-Stack Web Developer",
     "about": {
-      "intro": "Passionate web developer with expertise in:",
+      "intro": "Full-stack web developer specialized in:",
       "skills": [
-        "PHP with Laravel Framework",
-        "MySQL/Postgres Database Design",
-        "API Development & Integration",
-        "DevOps & Server Management"
+        "PHP & Laravel Framework Development",
+        "MySQL & PostgreSQL Database Design",
+        "RESTful API Development & Integration",
+        "DevOps, CI/CD & Server Management"
       ]
     },
     "projects": {

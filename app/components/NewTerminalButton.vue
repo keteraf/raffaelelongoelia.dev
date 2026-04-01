@@ -1,9 +1,10 @@
 <template>
     <button
-        class="px-8 py-4 bg-[#0c0c0c] border border-neutral-800/80 rounded-xl hover:bg-[#0e0e0e] hover:border-emerald-400/50 transition-all text-neutral-200 font-mono group"
+        class="flex items-center gap-2 px-5 py-3 bg-emerald-500/[0.07] border border-emerald-500/20 rounded-lg hover:bg-emerald-500/[0.12] hover:border-emerald-400/40 transition-all text-sm font-mono group"
         @click="$emit('click')"
     >
-        <span class="group-hover:text-emerald-400 transition-colors">$ </span> {{ $t('hero.terminalMode')}}
+        <span class="text-emerald-400 font-bold select-none group-hover:translate-x-0.5 transition-transform">❯</span>
+        <span class="text-neutral-300 group-hover:text-neutral-100 transition-colors">{{ $t('hero.terminalMode') }}</span>
     </button>
 </template>
 
