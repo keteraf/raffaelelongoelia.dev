@@ -62,7 +62,7 @@ export const useTerminal = () => {
     }
 
     const handleEnter = () => {
-        const command = input.value.trim()
+        const command = input.value.trim().toLowerCase()
         if (!command) return
         resetTab()
 
