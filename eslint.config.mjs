@@ -2,6 +2,10 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt(
+    // Global ignore: Markdown docs are not JS and fail to parse
+    {
+        ignores: ['**/*.md'],
+    },
     {
         rules: {
             // Equivalent to strict_comparison

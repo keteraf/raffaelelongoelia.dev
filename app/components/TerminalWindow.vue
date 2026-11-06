@@ -8,12 +8,12 @@
     >
         <div
             :class="[
-                'border border-white/[0.07] shadow-2xl overflow-hidden bg-[#0d1117] h-full flex flex-col',
+                'border border-site-border shadow-2xl overflow-hidden bg-site-surface h-full flex flex-col',
                 windowState === 'maximized' ? 'rounded-none' : 'rounded-xl',
             ]"
         >
             <!-- Title bar -->
-            <div class="grid grid-cols-3 items-center px-4 py-2.5 border-b border-white/[0.06] bg-[#161b22] shrink-0">
+            <div class="grid grid-cols-3 items-center px-4 py-2.5 border-b border-site-border bg-site-raised shrink-0">
                 <!-- Traffic lights -->
                 <div class="flex items-center gap-1.5">
                     <button
@@ -104,11 +104,11 @@ defineExpose({ scrollToBottom })
 }
 
 .terminal-scroll::-webkit-scrollbar-thumb {
-  background: #30363d;
+  background: #3f3f47;
   border-radius: 3px;
 }
 
 .terminal-scroll::-webkit-scrollbar-thumb:hover {
-  background: #484f58;
+  background: #52525b;
 }
 </style>

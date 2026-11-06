@@ -1,2 +1,22 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
+
+/* `static`: always emit every variable, even ones only read from JS (e.g. --color-site-accent-2) */
+@theme static {
+    --font-display: 'Archivo', system-ui, sans-serif;
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    /* Site palette */
+    --color-site-bg: #18181b;
+    --color-site-surface: #1f1f23;
+    --color-site-raised: #27272a;
+    --color-site-border: #3f3f47;
+    --color-site-text: #e4e4e7;
+    --color-site-muted: #a1a1aa;
+    --color-site-accent: #ff2056;
+    /* text drawn on top of an accent background */
+    --color-site-on-accent: #ffffff;
+    /* second branch colour in the experience graph */
+    --color-site-accent-2: #38bdf8;
+}

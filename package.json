@@ -28,5 +28,8 @@
     "tailwindcss": "^4.1.16",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@ssignal/cli": "^0.1.0"
   }
 }

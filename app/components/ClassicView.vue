@@ -1,219 +1,266 @@
 <template>
-    <div class="fixed inset-0 bg-[#0a0a0a] overflow-auto z-10 font-mono">
-        <!-- Header bar -->
-        <header class="sticky top-0 z-20 border-b border-neutral-800/60 bg-[#0a0a0a]/95 backdrop-blur-sm">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between gap-4">
-                <UButton
-                    variant="ghost"
-                    size="sm"
-                    class="text-neutral-400 hover:text-neutral-200 font-mono text-xs"
-                    @click="$emit('back')"
-                >
-                    ← back
-                </UButton>
-                <span class="hidden sm:flex items-center gap-0.5 text-xs select-none">
-                    <span class="text-emerald-400">raffaele</span>
-                    <span class="text-neutral-600">@</span>
-                    <span class="text-emerald-400">portfolio</span>
-                    <span class="text-neutral-600 mx-1.5">in</span>
-                    <span class="text-sky-400">~</span>
-                    <span class="text-neutral-500 mx-1.5">❯</span>
-                    <span class="text-neutral-300">classic --mode</span>
-                    <span class="ml-1 w-1.5 h-3.5 bg-emerald-400 opacity-70 animate-pulse inline-block align-middle" />
-                </span>
-                <div class="flex gap-1">
-                    <UButton
-                        size="xs"
-                        :variant="locale === 'en' ? 'solid' : 'ghost'"
-                        class="font-mono text-xs"
-                        @click="setLocale('en')"
-                    >
-                        EN
-                    </UButton>
-                    <UButton
-                        size="xs"
-                        :variant="locale === 'it' ? 'solid' : 'ghost'"
-                        class="font-mono text-xs"
-                        @click="setLocale('it')"
-                    >
-                        IT
-                    </UButton>
-                </div>
-            </div>
-        </header>
+    <div class="min-h-screen bg-site-bg text-site-text font-sans">
+        <SiteHeader
+            terminal
+            @open-terminal="$emit('open-terminal')"
+        />
 
-        <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 pb-16">
-            <!-- Bento grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- Left column: identity + about -->
-                <div class="flex flex-col gap-4">
-                    <!-- whoami card -->
-                    <UCard class="bg-[#0d0d0d] border border-neutral-800/60 ring-0">
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
-                                <span class="text-[10px] text-neutral-600 uppercase tracking-widest">whoami</span>
-                            </div>
-                            <h1 class="text-2xl font-bold leading-tight">
-                                <span class="bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                                    Raffaele<br>Longo Elia
-                                </span>
-                            </h1>
-                            <p class="text-sm text-neutral-400">
-                                Web Developer
+        <main>
+            <!-- Hero -->
+            <section class="relative border-b border-site-border/60">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28">
+                    <p class="font-mono text-sm text-site-accent tracking-widest mb-6">
+                        ~ {{ t('classic.hero.eyebrow') }}
+                    </p>
+                    <h1 class="font-display font-extrabold tracking-tight leading-[1.05] text-5xl md:text-7xl max-w-3xl">
+                        Raffaele<br>Longo Elia<br>
+                        <span class="italic text-site-accent">{{ t('classic.hero.role') }}</span>
+                    </h1>
+                    <p class="mt-8 max-w-2xl text-lg text-site-muted">
+                        {{ t('terminal.about.intro') }}
+                    </p>
+                    <p class="mt-4 font-mono text-sm text-neutral-500">
+                        {{ t('classic.hero.location') }}
+                    </p>
+                    <dl class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+                        <div
+                            v-for="stat in stats"
+                            :key="stat.value"
+                            class="border-l-2 border-site-accent/70 pl-4"
+                        >
+                            <dt class="font-display font-extrabold text-3xl tracking-tight">
+                                {{ stat.value }}
+                            </dt>
+                            <dd class="mt-1 text-sm text-site-muted">
+                                {{ stat.label }}
+                            </dd>
+                        </div>
+                    </dl>
+                    <div class="mt-10 flex flex-wrap gap-3">
+                        <a
+                            href="#experience"
+                            class="px-5 py-2.5 rounded-lg bg-site-accent text-site-on-accent text-sm font-semibold hover:brightness-110 transition"
+                        >{{ t('classic.hero.cta') }}</a>
+                        <a
+                            href="https://github.com/keteraf"
+                            target="_blank"
+                            rel="noopener"
+                            class="px-5 py-2.5 rounded-lg border border-site-border bg-site-surface text-sm font-semibold hover:border-site-muted transition-colors"
+                        >GitHub</a>
+                        <button
+                            type="button"
+                            class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-site-accent/40 bg-site-accent/10 hover:bg-site-accent/20 hover:border-site-accent text-sm font-mono transition-colors"
+                            @click="$emit('open-terminal')"
+                        >
+                            <span class="text-site-accent font-bold select-none group-hover:translate-x-0.5 transition-transform">❯</span>
+                            {{ t('classic.tryTerminal') }}
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About -->
+            <section
+                id="about"
+                class="scroll-mt-14 border-b border-site-border/60"
+            >
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20">
+                    <p class="font-mono text-sm text-site-accent tracking-widest mb-3">
+                        ~ {{ t('classic.about.eyebrow') }}
+                    </p>
+                    <h2 class="font-display font-extrabold tracking-tight text-3xl md:text-5xl mb-10">
+                        {{ t('classic.about.title') }}
+                        <span class="italic text-site-accent">{{ t('classic.about.titleAccent') }}</span>
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div
+                            v-for="(skill, i) in skills"
+                            :key="skill.title"
+                            class="rounded-xl border border-site-border bg-site-surface p-6"
+                        >
+                            <span class="font-mono text-xs text-site-accent">0{{ i + 1 }}</span>
+                            <p class="mt-3 text-lg font-semibold">
+                                {{ skill.title }}
+                            </p>
+                            <p class="mt-2 text-sm text-site-muted leading-relaxed">
+                                {{ skill.items }}
                             </p>
                         </div>
-                    </UCard>
+                    </div>
+                </div>
+            </section>
 
-                    <!-- about / skills card -->
-                    <UCard class="bg-[#0d0d0d] border border-neutral-800/60 ring-0 flex-1">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-2">
-                                <span class="text-[10px] text-neutral-600 uppercase tracking-widest">cat about.txt</span>
+            <!-- Experience -->
+            <section
+                id="experience"
+                class="scroll-mt-14 border-b border-site-border/60"
+            >
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20">
+                    <p class="font-mono text-sm text-site-accent tracking-widest mb-3">
+                        $ {{ t('classic.experience.eyebrow') }}
+                    </p>
+                    <h2 class="font-display font-extrabold tracking-tight text-3xl md:text-5xl mb-12">
+                        {{ t('classic.experience.title') }}
+                        <span class="italic text-site-accent">{{ t('classic.experience.titleAccent') }}</span>
+                    </h2>
+                    <ExperienceGraph collapsible />
+                </div>
+            </section>
+
+            <!-- TallyPal -->
+            <section
+                id="tallypal"
+                class="scroll-mt-14 border-b border-site-border/60"
+            >
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20">
+                    <p class="font-mono text-sm text-site-accent tracking-widest mb-3">
+                        ~ {{ t('classic.tallypal.eyebrow') }}
+                    </p>
+                    <h2 class="font-display font-extrabold tracking-tight text-3xl md:text-5xl">
+                        {{ t('classic.tallypal.title') }}
+                        <span class="italic text-site-accent">{{ t('classic.tallypal.titleAccent') }}</span>
+                    </h2>
+                    <p class="mt-4 font-mono text-sm text-site-muted">
+                        {{ t('classic.tallypal.tagline') }}
+                    </p>
+                    <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
+                        <div class="space-y-4 text-site-muted leading-relaxed">
+                            <p>{{ t('classic.tallypal.intro') }}</p>
+                            <a
+                                href="https://tallypal.it"
+                                target="_blank"
+                                rel="noopener"
+                                class="inline-block mt-2 px-5 py-2.5 rounded-lg bg-site-accent text-site-on-accent text-sm font-semibold hover:brightness-110 transition"
+                            >{{ t('classic.tallypal.visit') }} →</a>
+                        </div>
+                        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
+                            <div
+                                v-for="feature in tallypalFeatures"
+                                :key="feature.title"
+                                class="rounded-xl border border-site-border bg-site-surface p-6"
+                            >
+                                <dt class="text-lg font-semibold">
+                                    {{ feature.title }}
+                                </dt>
+                                <dd class="mt-2 text-sm text-site-muted leading-relaxed">
+                                    {{ feature.text }}
+                                </dd>
                             </div>
-                            <p class="text-xs text-neutral-500 leading-relaxed">
-                                {{ t('terminal.about.intro') }}
+                        </dl>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section
+                id="projects"
+                class="scroll-mt-14 border-b border-site-border/60"
+            >
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20">
+                    <div class="flex items-end justify-between gap-4 mb-10">
+                        <div>
+                            <p class="font-mono text-sm text-site-accent tracking-widest mb-3">
+                                ~ {{ t('classic.projects.eyebrow') }}
                             </p>
-                            <ul class="space-y-2.5">
-                                <li
-                                    v-for="skill in skills"
-                                    :key="skill"
-                                    class="flex items-start gap-2 text-sm text-neutral-300"
-                                >
-                                    <span class="text-emerald-500 mt-0.5 shrink-0">▸</span>
-                                    <span>{{ skill }}</span>
-                                </li>
-                            </ul>
+                            <h2 class="font-display font-extrabold tracking-tight text-3xl md:text-5xl">
+                                {{ t('classic.projects.title') }}
+                                <span class="italic text-site-accent">{{ t('classic.projects.titleAccent') }}</span>
+                            </h2>
                         </div>
-                    </UCard>
+                        <a
+                            href="https://github.com/keteraf?tab=repositories"
+                            target="_blank"
+                            rel="noopener"
+                            class="hidden sm:inline font-mono text-xs text-site-muted hover:text-site-accent transition-colors"
+                        >{{ t('classic.projects.all') }} →</a>
+                    </div>
 
-                    <!-- contact card (visible on mobile, hidden md+) -->
-                    <UCard class="md:hidden bg-[#0d0d0d] border border-neutral-800/60 ring-0">
-                        <div class="space-y-3">
-                            <span class="text-[10px] text-neutral-600 uppercase tracking-widest">contact --info</span>
-                            <div class="flex flex-col gap-2">
-                                <UButton
-                                    to="https://github.com/keteraf"
-                                    target="_blank"
-                                    variant="outline"
-                                    size="sm"
-                                    class="justify-start font-mono text-amber-400 border-amber-900/50 hover:border-amber-600/60 hover:bg-amber-950/20"
-                                >
-                                    github.com/keteraf
-                                </UButton>
-                                <UButton
-                                    to="https://linkedin.com/in/raffaele-longo-elia"
-                                    target="_blank"
-                                    variant="outline"
-                                    size="sm"
-                                    class="justify-start font-mono text-amber-400 border-amber-900/50 hover:border-amber-600/60 hover:bg-amber-950/20"
-                                >
-                                    linkedin/raffaele-longo-elia
-                                </UButton>
-                            </div>
-                        </div>
-                    </UCard>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <a
+                            v-for="project in FEATURED_PROJECTS"
+                            :key="project.id"
+                            :href="project.url"
+                            target="_blank"
+                            rel="noopener"
+                            class="group flex flex-col rounded-xl border border-site-border bg-site-surface p-6 hover:border-site-accent transition-colors"
+                        >
+                            <span class="flex flex-wrap items-center gap-2 font-mono text-sm">
+                                <span><span class="text-site-muted group-hover:text-site-accent transition-colors">./</span>{{ project.id }}/</span>
+                                <span
+                                    v-if="project.wip"
+                                    class="rounded-full border border-site-accent/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-site-accent"
+                                >{{ t('classic.projects.wip') }}</span>
+                            </span>
+                            <span class="mt-3 text-sm text-site-muted leading-relaxed">
+                                {{ t(`classic.projects.items.${project.id}`) }}
+                            </span>
+                            <span class="mt-auto pt-4 flex flex-wrap gap-1.5">
+                                <span
+                                    v-for="tech in project.stack"
+                                    :key="tech"
+                                    class="rounded-md bg-site-raised px-2 py-0.5 font-mono text-[11px] text-site-muted"
+                                >{{ tech }}</span>
+                            </span>
+                        </a>
+                    </div>
+                    <a
+                        href="https://github.com/keteraf?tab=repositories"
+                        target="_blank"
+                        rel="noopener"
+                        class="sm:hidden mt-6 inline-block font-mono text-xs text-site-muted hover:text-site-accent transition-colors"
+                    >{{ t('classic.projects.all') }} →</a>
                 </div>
+            </section>
 
-                <!-- Right column: projects + contact -->
-                <div class="md:col-span-2 flex flex-col gap-4">
-                    <!-- projects card -->
-                    <UCard class="bg-[#0d0d0d] border border-neutral-800/60 ring-0 flex-1">
-                        <template #header>
-                            <div class="flex items-center justify-between">
-                                <span class="text-[10px] text-neutral-600 uppercase tracking-widest">ls ~/projects</span>
-                                <UBadge
-                                    v-if="!ghLoading && ghRepos"
-                                    variant="soft"
-                                    size="xs"
-                                    class="font-mono text-[10px]"
-                                >
-                                    {{ ghRepos.length }} repos
-                                </UBadge>
-                            </div>
-                        </template>
-
-                        <div
-                            v-if="ghLoading"
-                            class="flex items-center gap-2 text-xs text-neutral-500 py-2"
-                        >
-                            <span class="animate-pulse text-emerald-500">▊</span>
-                            {{ t('terminal.projects.loading') }}
-                        </div>
-                        <p
-                            v-else-if="!ghRepos?.length"
-                            class="text-xs text-neutral-500 py-2"
-                        >
-                            {{ t('terminal.projects.empty') }}
-                        </p>
-                        <div
-                            v-else
-                            class="grid grid-cols-2 sm:grid-cols-3 gap-1.5"
-                        >
-                            <UButton
-                                v-for="repo in ghRepos"
-                                :key="repo.label"
-                                :to="repo.href"
-                                target="_blank"
-                                variant="ghost"
-                                size="xs"
-                                class="justify-start font-mono text-xs text-sky-400/80 hover:text-sky-300 hover:bg-sky-950/30 truncate"
-                            >
-                                <span class="text-neutral-700 mr-0.5">./</span>{{ repo.label }}
-                            </UButton>
-                        </div>
-                    </UCard>
-
-                    <!-- contact card (hidden on mobile, visible md+) -->
-                    <UCard class="hidden md:block bg-[#0d0d0d] border border-neutral-800/60 ring-0">
-                        <template #header>
-                            <span class="text-[10px] text-neutral-600 uppercase tracking-widest">contact --info</span>
-                        </template>
-                        <div class="flex flex-wrap gap-3">
-                            <UButton
-                                to="https://github.com/keteraf"
-                                target="_blank"
-                                variant="outline"
-                                size="sm"
-                                class="font-mono text-amber-400 border-amber-900/50 hover:border-amber-600/60 hover:bg-amber-950/20"
-                            >
-                                github.com/keteraf
-                            </UButton>
-                            <UButton
-                                to="https://linkedin.com/in/raffaele-longo-elia"
-                                target="_blank"
-                                variant="outline"
-                                size="sm"
-                                class="font-mono text-amber-400 border-amber-900/50 hover:border-amber-600/60 hover:bg-amber-950/20"
-                            >
-                                linkedin.com/in/raffaele-longo-elia
-                            </UButton>
-                        </div>
-                    </UCard>
+            <!-- Contact -->
+            <section
+                id="contact"
+                class="relative scroll-mt-14"
+            >
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 text-center">
+                    <p class="font-mono text-sm text-site-accent tracking-widest mb-3">
+                        ~ {{ t('classic.contact.eyebrow') }}
+                    </p>
+                    <h2 class="font-display font-extrabold tracking-tight text-3xl md:text-5xl">
+                        {{ t('classic.contact.title') }}
+                        <span class="italic text-site-accent">{{ t('classic.contact.titleAccent') }}</span>
+                    </h2>
+                    <p class="mt-6 max-w-2xl mx-auto text-site-muted leading-relaxed">
+                        {{ t('classic.contact.text') }}
+                    </p>
+                    <div class="mt-10 flex flex-wrap justify-center gap-3">
+                        <a
+                            href="https://github.com/keteraf"
+                            target="_blank"
+                            rel="noopener"
+                            class="px-5 py-2.5 rounded-lg bg-site-accent text-site-on-accent text-sm font-semibold hover:brightness-110 transition"
+                        >github.com/keteraf</a>
+                        <a
+                            href="https://linkedin.com/in/raffaele-longo-elia"
+                            target="_blank"
+                            rel="noopener"
+                            class="px-5 py-2.5 rounded-lg border border-site-border bg-site-surface text-sm font-semibold hover:border-site-muted transition-colors"
+                        >linkedin.com/in/raffaele-longo-elia</a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Footer -->
-            <p class="mt-12 text-center text-[11px] text-neutral-700 select-none">
-                <span class="text-neutral-600">raffaele@portfolio</span>
-                <span class="text-neutral-800 mx-1">~</span>
-                <span class="text-neutral-700">$ exit</span>
-            </p>
+            </section>
         </main>
+
+        <SiteFooter />
     </div>
 </template>
 
 <script setup lang="ts">
-import { useGithubRepos } from '~/composables/terminal/useGithubRepos'
+import { FEATURED_PROJECTS } from '~/data/projects'
 
-const { t, tm, rt, locale, setLocale } = useI18n()
-const { ghRepos, ghLoading, fetchGithubRepos } = useGithubRepos()
+const { t, tm, rt } = useI18n()
 
-const skills = computed(() => (tm('terminal.about.skills') as string[]).map(s => rt(s)))
+const skills = computed(() => (tm('terminal.about.skills') as { title: unknown, items: unknown }[])
+    .map(s => ({ title: rt(s.title as string), items: rt(s.items as string) })))
+const tallypalFeatures = computed(() => (tm('classic.tallypal.features') as { title: unknown, text: unknown }[])
+    .map(f => ({ title: rt(f.title as string), text: rt(f.text as string) })))
+const stats = computed(() => (tm('classic.hero.stats') as { value: unknown, label: unknown }[])
+    .map(s => ({ value: rt(s.value as string), label: rt(s.label as string) })))
 
-defineEmits<{ back: [] }>()
-
-onMounted(() => {
-    fetchGithubRepos()
-})
+defineEmits<{ 'open-terminal': [] }>()
 </script>

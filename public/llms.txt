@@ -1,0 +1,14 @@
+# Raffaele Longo Elia
+
+> Senior Software Engineer (PHP · Laravel · Vue) based in the Milan area, Italy, with 16 years of experience building for the web — the last 7 focused on Laravel, Vue and system architecture. Open to full-remote roles across the EU.
+
+## Pages
+
+- [Portfolio](https://raffaelelongoelia.dev/): profile, skills, work experience, open-source projects and contact links (English and Italian).
+- [About](https://raffaelelongoelia.dev/about): background, current work, career history, education and interests.
+- [Privacy](https://raffaelelongoelia.dev/privacy): privacy policy.
+
+## Elsewhere
+
+- [GitHub](https://github.com/keteraf): open-source repositories
+- [LinkedIn](https://linkedin.com/in/raffaele-longo-elia): professional profile

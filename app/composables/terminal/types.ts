@@ -7,7 +7,8 @@ export type OutputLines = { type: 'lines', lines: readonly string[] }
 export type OutputRaw = { type: 'raw', text: string }
 export type OutputGrid = { type: 'grid', items: readonly GridItem[] }
 export type OutputLinks = { type: 'links', github: string, linkedin: string }
-export type CommandOutput = OutputLines | OutputRaw | OutputGrid | OutputLinks
+export type OutputExperience = { type: 'experience' }
+export type CommandOutput = OutputLines | OutputRaw | OutputGrid | OutputLinks | OutputExperience
 
 export interface CommandResult {
     ok: boolean

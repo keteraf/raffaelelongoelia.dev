@@ -6,7 +6,7 @@
         <p
             v-for="(line, i) in output.lines"
             :key="i"
-            class="whitespace-pre leading-5"
+            class="whitespace-pre-wrap leading-5"
         >
             {{ line }}
         </p>
@@ -63,6 +63,12 @@
                 rel="noopener noreferrer"
             >{{ output.linkedin }}</a>
         </p>
+    </div>
+    <div
+        v-else-if="output?.type === 'experience'"
+        class="pl-6 mt-2"
+    >
+        <ExperienceGraph compact />
     </div>
 </template>
 

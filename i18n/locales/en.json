@@ -1,15 +1,176 @@
 {
   "hero": {
-    "title": "Raffaele Longo Elia",
-    "subtitle": "Full-Stack Web Developer",
-    "welcome": "Explore My Web Development Portfolio",
-    "hint": "Choose your experience below",
-    "terminalMode": "Terminal",
-    "classicMode": "Classic"
+    "welcome": "Raffaele Longo Elia — Senior Software Engineer. 16 years of PHP, the last 7 on Laravel, Vue and system architecture.",
+    "hint": "Type '{command}' to see available commands."
+  },
+  "nuxtSiteConfig": {
+    "description": "Senior Software Engineer (PHP · Laravel · Vue) with 16 years of experience. Experience, skills and projects — or explore them through an interactive terminal."
+  },
+  "seo": {
+    "title": "Raffaele Longo Elia — Senior Software Engineer",
+    "description": "Senior Software Engineer (PHP · Laravel · Vue) with 16 years of experience. Experience, skills and projects — or explore them through an interactive terminal."
   },
   "classic": {
-    "comingSoon": "Classic mode coming soon — stay tuned",
-    "back": "← Back"
+    "tryTerminal": "Try the terminal",
+    "terminalShort": "Terminal",
+    "nav": {
+      "about": "About",
+      "experience": "Experience",
+      "projects": "Projects",
+      "contact": "Contact",
+      "tallypal": "TallyPal"
+    },
+    "hero": {
+      "eyebrow": "portfolio",
+      "role": "Software Engineer.",
+      "cta": "View experience",
+      "location": "Milan area, Italy · Open to full-remote roles across the EU",
+      "stats": [
+        {
+          "value": "16",
+          "label": "years building for the web"
+        },
+        {
+          "value": "€30M+",
+          "label": "annual premiums on a platform built from scratch"
+        },
+        {
+          "value": "7",
+          "label": "years of enterprise consulting at Vodafone Italia"
+        }
+      ]
+    },
+    "about": {
+      "eyebrow": "skills",
+      "title": "What I",
+      "titleAccent": "work with."
+    },
+    "experience": {
+      "eyebrow": "git log --graph",
+      "title": "Where I've",
+      "titleAccent": "shipped."
+    },
+    "projects": {
+      "eyebrow": "open source",
+      "title": "Open source things",
+      "titleAccent": "I've built.",
+      "wip": "work in progress",
+      "all": "All repositories on GitHub",
+      "items": {
+        "laratooler": "Laravel package, published on Packagist, that adds modern dev tools such as Larastan and Rector to an existing Laravel app with a single composer require.",
+        "vilt-starter-kit": "Starter kit for the VILT stack (Vue 3, Inertia, Laravel 12, Tailwind 4) with Pest, PHPStan, Rector, Pint and Laravel MCP preconfigured. Install it with laravel new --using=keteraf/vilt-starter-kit.",
+        "pames": "A website with a new logic or math puzzle every day, built as a portfolio piece: daily rotation, user accounts with 2FA and passkeys, and a Pest test suite.",
+        "ragtisan": "Laravel app for building RAG (retrieval-augmented generation) setups.",
+        "get-done": "Project management SaaS built on Laravel and Vue."
+      }
+    },
+    "contact": {
+      "eyebrow": "contact",
+      "title": "Let's build",
+      "titleAccent": "something.",
+      "text": "I am open to full-remote Senior Software Engineer roles across the EU, especially on PHP, Laravel and Vue products where I can own features end to end and help shape the architecture. The quickest way to reach me is LinkedIn; my open-source work is on GitHub."
+    },
+    "tallypal": {
+      "eyebrow": "side project",
+      "title": "Creator of",
+      "titleAccent": "TallyPal.",
+      "tagline": "Track money. Share tallies. Stay in sync.",
+      "intro": "TallyPal is a personal finance tracker I created and develop. You create tallies, shared ledgers you own and control, log income and expenses with category and currency, invite people by email and split expenses with custom percentages per member. Next to the web app there is a full REST API, so third-party services and native clients can integrate with it.",
+      "features": [
+        {
+          "title": "Tallies",
+          "text": "Shared ledgers you own and control."
+        },
+        {
+          "title": "Transactions",
+          "text": "Income and expenses per tally, with category and currency."
+        },
+        {
+          "title": "Sharing",
+          "text": "Invite people by email and set custom split percentages per member."
+        },
+        {
+          "title": "REST API",
+          "text": "Full API for external integrations and native clients."
+        }
+      ],
+      "visit": "Visit tallypal.it"
+    }
+  },
+  "experience": {
+    "present": "Present",
+    "mergeSi2001": "Merge branch 'si2001' into main",
+    "showMore": "Show full history · {count} more",
+    "showLess": "Collapse history",
+    "root": "git init — first line of PHP, 2008",
+    "items": {
+      "bene": {
+        "role": "Software Engineer",
+        "location": "Seregno (MB), Italy · Insurance",
+        "points": [
+          "Built a direct-to-consumer car insurance website from scratch in a team of 4, as the backend-focused engineer. The platform now processes over €30M in annual premiums and is still growing.",
+          "Lead contributor to system architecture: define codebase conventions and own the design of the REST APIs and microservice boundaries; de facto technical reference for the team.",
+          "Laravel 12 on MySQL 8 with a Vue 3 front end, Redis-backed queues and scheduled jobs, PHPUnit / Pest test suites, deployed on AWS and Linux servers through CI/CD pipelines.",
+          "Currently scoping an AI-enhanced customer experience for the purchase flow."
+        ]
+      },
+      "si2001": {
+        "role": "Software Engineer (Consultant)",
+        "location": "Milan, Italy · IT consulting"
+      },
+      "vodafone": {
+        "role": "Customer Operations – Provisioning",
+        "location": "Consulting engagement for Si2001 SpA",
+        "points": [
+          "In a team of 3, designed and built the department's tooling serving thousands of customers per day.",
+          "Reporting dashboards, back-office applications and scheduled processes notifying field technicians across all of Italy."
+        ]
+      },
+      "exage": {
+        "role": "Technical Analyst",
+        "location": "Consulting engagement for Si2001 SpA · 1 month",
+        "points": [
+          "Technical analysis, from functional specification to technical design, for an IVR appointment booking system."
+        ]
+      },
+      "si2001Internal": {
+        "role": "Software Engineer",
+        "location": "Si2001 SpA · Internal · 1 month",
+        "points": [
+          "Internal Java course and development of internal software."
+        ]
+      },
+      "interteck": {
+        "role": "Full Stack Web Developer",
+        "location": "Messina, Italy",
+        "points": [
+          "One of two developers across parallel projects: the company website restyling with a new e-commerce system, the corporate network, and the software running the \"Case dell'Acqua\" water-dispensing kiosks (Visual Basic, C#), the flagship product."
+        ]
+      },
+      "break": {
+        "role": "Career break",
+        "location": "Relocated abroad",
+        "points": [
+          "Moved to Australia to reach professional English fluency (now C1)."
+        ]
+      },
+      "artebianca": {
+        "role": "Full Stack Web Developer",
+        "location": "Messina, Italy",
+        "points": [
+          "Digitised warehouse operations by designing and building a custom management system covering the main warehouse workflows.",
+          "Later took over the company's IT: network configuration and internal management software in PHP and Java."
+        ]
+      },
+      "provy": {
+        "role": "Full Stack Web Developer",
+        "location": "Messina, Italy",
+        "points": [
+          "Developed \"Callstation\", a call, contract and operator management system for outbound contact centres, built on LAMP and Java and compatible with any Asterisk-based PBX.",
+          "Moved the PBX to the cloud in 2010."
+        ]
+      }
+    }
   },
   "terminal": {
     "help": {
@@ -19,6 +180,7 @@
       "cd": "change directory",
       "pwd": "print working directory",
       "cat": "show about & skills",
+      "experience": "show work experience",
       "contact": "show contact links",
       "projects": "browse GitHub projects",
       "echo": "print text",
@@ -26,19 +188,43 @@
       "clear": "clear terminal screen",
       "lang": "switch language"
     },
-    "whoami": "Raffaele Longo Elia — Full-Stack Web Developer",
+    "whoami": "Raffaele Longo Elia — Senior Software Engineer (PHP · Laravel · Vue) · Milan area, Italy · open to full-remote roles across the EU",
     "about": {
-      "intro": "Full-stack web developer specialized in:",
+      "intro": "Senior Software Engineer with 16 years of experience building web applications in PHP, the last 7 focused on Laravel, Vue and system architecture. I own features end to end: analysis, data model, API, front end, automated tests and deployment.",
+      "skillsTitle": "Technical skills:",
       "skills": [
-        "PHP & Laravel Framework Development",
-        "MySQL & PostgreSQL Database Design",
-        "RESTful API Development & Integration",
-        "DevOps, CI/CD & Server Management"
+        {
+          "title": "Languages",
+          "items": "PHP 8, JavaScript, TypeScript, SQL, Python (scripting), Java"
+        },
+        {
+          "title": "Backend",
+          "items": "Laravel 12, REST APIs, microservices, queues and scheduled jobs, Redis, PHPUnit / Pest"
+        },
+        {
+          "title": "Frontend",
+          "items": "Vue 3, Inertia.js, TailwindCSS, HTML5, CSS3; earlier jQuery and Bootstrap"
+        },
+        {
+          "title": "Databases",
+          "items": "MySQL 8, PostgreSQL, relational data modelling"
+        },
+        {
+          "title": "Cloud & DevOps",
+          "items": "AWS, Linux servers, CI/CD pipelines, Docker (development environments), Apache, Git (GitHub, GitLab, Bitbucket)"
+        },
+        {
+          "title": "Spoken languages",
+          "items": "Italian (native), English (C1)"
+        }
       ]
     },
     "projects": {
       "loading": "Fetching GitHub repositories...",
       "empty": "No public repositories found"
+    },
+    "git": {
+      "usage": "usage: git log"
     },
     "errors": {
       "noSuchDir": "cd: no such file or directory: {path}",
@@ -52,5 +238,107 @@
       "openingRepo": "Opening {repo} on GitHub..."
     },
     "langChanged": "Language changed"
+  },
+  "footer": {
+    "about": "About",
+    "privacy": "Privacy"
+  },
+  "aboutPage": {
+    "seoTitle": "About Raffaele Longo Elia — Senior Software Engineer",
+    "seoDescription": "Who Raffaele Longo Elia is: a Senior Software Engineer in the Milan area with 16 years of PHP, the last 7 on Laravel, Vue and system architecture.",
+    "eyebrow": "about",
+    "title": "About me",
+    "more": "The full timeline, with stacks and dates, is on the",
+    "moreLink": "experience section of the home page",
+    "sections": [
+      {
+        "heading": "Who is Raffaele Longo Elia?",
+        "paragraphs": [
+          "I am a Senior Software Engineer based in the Milan area, Italy. I have been working as a software engineer since 2010, building web applications mostly in PHP, and for the last seven years I have focused on Laravel, Vue and system architecture. I own features end to end: analysis, data model, API, front end, automated tests and deployment."
+        ]
+      },
+      {
+        "heading": "What am I working on right now?",
+        "paragraphs": [
+          "Since September 2024 I have been a Software Engineer at Bene Assicurazioni in Seregno. In a team of four we built a direct-to-consumer car insurance website from scratch, with me as the backend-focused engineer. The platform now processes over €30M in annual premiums and is still growing. I am the lead contributor to its architecture: codebase conventions, REST API design and microservice boundaries, on Laravel 12, MySQL 8, Vue 3, Redis and AWS."
+        ]
+      },
+      {
+        "heading": "What did I do before that?",
+        "paragraphs": [
+          "From 2017 to 2024 I worked as a consultant for Si2001 SpA, spending seven years on an enterprise engagement in the Customer Operations – Provisioning department of Vodafone Italia. In a team of three we designed and built the department's tooling, which serves thousands of customers per day: reporting dashboards, back-office applications and scheduled processes that notify field technicians across Italy.",
+          "My career started in Messina as a full stack developer. At Provy, from 2008, I built Callstation, a contact-centre management system integrated with Asterisk PBX, and moved the PBX to the cloud in 2010. At Artebianca I digitised warehouse operations with a custom management system. After a career break in Australia to reach professional English fluency, I joined Interteck, where I worked on the software behind the Case dell'Acqua water-dispensing kiosks."
+        ]
+      },
+      {
+        "heading": "How do I like to work?",
+        "paragraphs": [
+          "I like owning a feature from start to finish: understanding the business problem, modelling the data, designing the API, building the Vue front end, covering it with PHPUnit or Pest tests and shipping it through CI/CD. On my current team I am the de facto technical reference, so a good part of my work is defining conventions that keep the codebase consistent as it grows."
+        ]
+      },
+      {
+        "heading": "Where did I study?",
+        "paragraphs": [
+          "I studied Computer Science at the University of Messina, specialising in computer networks and distributed systems. Those years overlapped with my first job at Provy, and the networking background has stayed useful: in several roles I also looked after company networks alongside the software."
+        ]
+      },
+      {
+        "heading": "What do I do outside of work?",
+        "paragraphs": [
+          "Outside of work I am into rock music and science, and I keep experimenting with code. My side projects, such as a daily logic puzzle website, Laravel tooling packages and a RAG app builder, are all on GitHub and featured in the projects section of the home page."
+        ]
+      },
+      {
+        "heading": "Am I open to new roles?",
+        "paragraphs": [
+          "Yes. I live in the Milan area and I am open to full-remote roles across the EU. I speak Italian as my native language and English at C1 level. The quickest way to reach me is LinkedIn, and my open-source work is on GitHub; both are linked at the bottom of every page."
+        ]
+      }
+    ]
+  },
+  "privacyPage": {
+    "seoTitle": "Privacy policy — Raffaele Longo Elia",
+    "seoDescription": "How raffaelelongoelia.dev handles your data: no tracking, one language cookie, GitHub API requests for the projects list and standard hosting logs.",
+    "eyebrow": "privacy",
+    "title": "Privacy policy",
+    "updated": "Last updated: November 2026",
+    "sections": [
+      {
+        "heading": "Who runs this site?",
+        "paragraphs": [
+          "This site is the personal portfolio of Raffaele Longo Elia, who is responsible for it. It has no user accounts, no contact forms and no newsletter, so it never asks you to enter personal data."
+        ]
+      },
+      {
+        "heading": "Does this site track me?",
+        "paragraphs": [
+          "No. There is no analytics, no advertising and no third-party tracking script. Fonts and all other assets are served from this site itself rather than from external services."
+        ]
+      },
+      {
+        "heading": "Which cookies and local storage are used?",
+        "paragraphs": [
+          "One cookie, i18n_redirected, remembers the language you chose so that you are never redirected against your choice. Your browser may also keep a display preference (colour mode) in local storage. Both are strictly functional, stay on your device and are not used to identify you."
+        ]
+      },
+      {
+        "heading": "Which third parties receive data?",
+        "paragraphs": [
+          "The terminal's projects command loads the list of public repositories directly from the GitHub API (api.github.com). Your browser connects to GitHub to do this, so GitHub receives your IP address and browser details under its own privacy policy. Links to GitHub and LinkedIn open those sites, which apply their own policies."
+        ]
+      },
+      {
+        "heading": "What does the hosting provider record?",
+        "paragraphs": [
+          "The site is hosted by OVH. Like any web server, it may keep standard technical logs, such as IP address, date, requested page and browser, for security and operation. These logs are not used for profiling or marketing."
+        ]
+      },
+      {
+        "heading": "What are my rights?",
+        "paragraphs": [
+          "Under the GDPR you can ask for access to, correction or deletion of personal data concerning you. Since this site does not collect personal data directly, requests about data held by GitHub, LinkedIn or OVH should go to those providers; for anything else, you can contact me on LinkedIn."
+        ]
+      }
+    ]
   }
 }

@@ -6,6 +6,7 @@ const lines = (arr: string[]) => ({ type: 'lines' as const, lines: arr })
 const raw = (text: string) => ({ type: 'raw' as const, text })
 const grid = (items: GridItem[]) => ({ type: 'grid' as const, items })
 const links = (github: string, linkedin: string) => ({ type: 'links' as const, github, linkedin })
+const experience = () => ({ type: 'experience' as const })
 
 const projectsList = ({ ghLoading, ghError, ghRepos, t }: CommandContext): GridItem[] => {
     if (ghLoading.value) return [t('terminal.projects.loading')]
@@ -26,6 +27,7 @@ export const COMMANDS: Record<string, CommandDef> = {
                 `  cd [~|..|projects] → ${t('terminal.help.cd')}`,
                 `  pwd                → ${t('terminal.help.pwd')}`,
                 `  cat about.txt      → ${t('terminal.help.cat')}`,
+                `  git log            → ${t('terminal.help.experience')}`,
                 `  contact --info     → ${t('terminal.help.contact')}`,
                 `  projects           → ${t('terminal.help.projects')}`,
                 `  echo <text>        → ${t('terminal.help.echo')}`,
@@ -84,15 +86,29 @@ export const COMMANDS: Record<string, CommandDef> = {
             const target = args[0]
             if (!target) return { ok: false, output: raw(t('terminal.errors.noSuchFile', { file: '' })) }
             if (target === 'about.txt' && cwd === '~') {
-                const skills = tm('terminal.about.skills') as string[]
+                const skills = tm('terminal.about.skills') as { title: unknown, items: unknown }[]
                 return {
                     ok: true,
-                    output: lines([t('terminal.about.intro'), ...skills.map(s => `• ${rt(s)}`)]),
+                    output: lines([
+                        t('terminal.about.intro'),
+                        '',
+                        t('terminal.about.skillsTitle'),
+                        ...skills.map(s => `• ${rt(s.title)}: ${rt(s.items)}`),
+                    ]),
                 }
             }
             return { ok: false, output: raw(t('terminal.errors.noSuchFile', { file: target })) }
         },
         argCompletions: ({ cwd }) => getFiles(cwd as VirtualPath),
+    },
+    experience: {
+        handler: () => ({ ok: true, output: experience() }),
+    },
+    git: {
+        handler: ({ args, t }) => args[0] === 'log'
+            ? { ok: true, output: experience() }
+            : { ok: false, output: raw(t('terminal.git.usage')) },
+        argCompletions: () => ['log'],
     },
     contact: {
         handler: ({ args, t }) => args[0] === '--info'

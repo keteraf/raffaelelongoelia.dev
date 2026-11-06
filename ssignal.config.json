@@ -1,0 +1,13 @@
+{
+  "target": ".output/public",
+  "site": "https://raffaelelongoelia.dev",
+  "maxPages": 100,
+  "privatePaths": [],
+  "locales": [],
+  "brand": "Raffaele Longo Elia",
+  "keywords": {},
+  "rules": {
+    "contact-page": "off",
+    "schema-organization": "off"
+  }
+}
