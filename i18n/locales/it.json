@@ -13,6 +13,8 @@
   "classic": {
     "tryTerminal": "Prova il terminale",
     "terminalShort": "Terminale",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu",
     "nav": {
       "about": "Competenze",
       "experience": "Esperienza",

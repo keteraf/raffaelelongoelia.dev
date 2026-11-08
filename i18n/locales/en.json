@@ -13,6 +13,8 @@
   "classic": {
     "tryTerminal": "Try the terminal",
     "terminalShort": "Terminal",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "nav": {
       "about": "About",
       "experience": "Experience",
