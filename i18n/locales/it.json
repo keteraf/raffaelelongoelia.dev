@@ -1,14 +1,14 @@
 {
   "hero": {
-    "welcome": "Raffaele Longo Elia — Senior Software Engineer. 16 anni di PHP, gli ultimi 7 su Laravel, Vue e architettura di sistema.",
+    "welcome": "Raffaele Longo Elia — Senior Software Engineer. Sviluppo in PHP da 16 anni e negli ultimi 7 lavoro soprattutto con Laravel, Vue e system architecture.",
     "hint": "Digita '{command}' per vedere i comandi disponibili."
   },
   "nuxtSiteConfig": {
-    "description": "Senior Software Engineer (PHP · Laravel · Vue) con 16 anni di esperienza. Esperienza, competenze e progetti — oppure esplorali da un terminale interattivo."
+    "description": "Senior Software Engineer (PHP · Laravel · Vue) con 16 anni di esperienza. Scopri il mio percorso, le competenze e i progetti, anche tramite un terminale interattivo."
   },
   "seo": {
     "title": "Raffaele Longo Elia — Senior Software Engineer",
-    "description": "Senior Software Engineer (PHP · Laravel · Vue) con 16 anni di esperienza. Esperienza, competenze e progetti — oppure esplorali da un terminale interattivo."
+    "description": "Senior Software Engineer (PHP · Laravel · Vue) con 16 anni di esperienza. Scopri il mio percorso, le competenze e i progetti, anche tramite un terminale interattivo."
   },
   "classic": {
     "tryTerminal": "Prova il terminale",
@@ -34,28 +34,28 @@
         },
         {
           "value": "€30M+",
-          "label": "di premi annui su una piattaforma costruita da zero"
+          "label": "di premi annui gestiti da una piattaforma sviluppata da zero"
         },
         {
           "value": "7",
-          "label": "anni di consulenza enterprise in Vodafone Italia"
+          "label": "anni come consulente su progetti enterprise per Vodafone Italia"
         }
       ]
     },
     "about": {
       "eyebrow": "competenze",
-      "title": "Con cosa",
-      "titleAccent": "lavoro."
+      "title": "Gli strumenti",
+      "titleAccent": "che uso."
     },
     "experience": {
       "eyebrow": "git log --graph",
       "title": "Dove ho",
-      "titleAccent": "rilasciato."
+      "titleAccent": "lavorato."
     },
     "projects": {
       "eyebrow": "open source",
-      "title": "Cosa ho costruito",
-      "titleAccent": "in open source.",
+      "title": "I miei progetti",
+      "titleAccent": "open source.",
       "wip": "in sviluppo",
       "all": "Tutti i repository su GitHub",
       "items": {
@@ -68,20 +68,20 @@
     },
     "contact": {
       "eyebrow": "contatti",
-      "title": "Costruiamo",
-      "titleAccent": "qualcosa.",
-      "text": "Sono disponibile per ruoli full-remote da Senior Software Engineer in tutta l'UE, soprattutto su prodotti PHP, Laravel e Vue in cui posso seguire le funzionalità end to end e contribuire all'architettura. Il modo più rapido per contattarmi è LinkedIn; i miei progetti open source sono su GitHub."
+      "title": "Lavoriamo",
+      "titleAccent": "insieme.",
+      "text": "Cerco ruoli full-remote come Senior Software Engineer in tutta l'UE, in particolare su prodotti PHP, Laravel e Vue in cui possa seguire le feature end-to-end e contribuire all'architettura. Il modo più rapido per contattarmi è LinkedIn; i miei progetti open source sono su GitHub."
     },
     "tallypal": {
       "eyebrow": "progetto personale",
-      "title": "Creatore di",
+      "title": "Ho creato",
       "titleAccent": "TallyPal.",
-      "tagline": "Traccia le spese. Condividi i conti. Resta sincronizzato.",
-      "intro": "TallyPal è un'app per la gestione delle finanze personali che ho creato e sviluppo. Crei dei tally, registri condivisi di cui hai il pieno controllo, registri entrate e uscite con categoria e valuta, inviti altre persone via email e dividi le spese con percentuali personalizzate per ogni membro. Accanto alla web app c'è un'API REST completa, così servizi di terze parti e client nativi possono integrarsi.",
+      "tagline": "Tieni traccia delle spese. Dividi i conti. Resta sempre in sync.",
+      "intro": "TallyPal è un'app di finanza personale che ho ideato. Puoi creare dei tally (conteggi) condivisi su cui hai il pieno controllo. Puoi annotare entrate e uscite con categoria e valuta, invitare altre persone via email e dividere le spese con percentuali diverse per ciascun membro.",
       "features": [
         {
           "title": "Tally",
-          "text": "Registri condivisi di cui hai il pieno controllo."
+          "text": "Registri condivisi, sotto il tuo pieno controllo."
         },
         {
           "title": "Transazioni",
@@ -89,31 +89,30 @@
         },
         {
           "title": "Condivisione",
-          "text": "Invita persone via email e imposta percentuali di divisione per ogni membro."
+          "text": "Invita altre persone via email e decidi la quota di spesa di ciascuno."
         },
         {
-          "title": "API REST",
-          "text": "API completa per integrazioni esterne e client nativi."
+          "title": "REST API",
+          "text": "Una REST API completa per integrazioni esterne e client nativi."
         }
       ],
       "visit": "Visita tallypal.it"
     }
   },
   "experience": {
-    "present": "Oggi",
+    "present": "In corso",
     "mergeSi2001": "Merge branch 'si2001' into main",
-    "showMore": "Mostra tutta la storia · altri {count}",
-    "showLess": "Riduci la storia",
-    "root": "git init — prima riga di PHP, 2008",
+    "showMore": "Mostra tutta la timeline · altre {count} esperienze",
+    "showLess": "Mostra meno",
+    "root": "git init — la mia prima riga di PHP, nel 2008",
     "items": {
       "bene": {
         "role": "Software Engineer",
         "location": "Seregno (MB), Italia · Assicurazioni",
         "points": [
-          "Ho costruito da zero un sito di assicurazione auto diretta al consumatore in un team di 4, come ingegnere focalizzato sul backend. La piattaforma oggi gestisce oltre €30M di premi annui ed è in crescita.",
-          "Contributore principale all'architettura di sistema: definisco le convenzioni del codice e curo il design delle API REST e dei confini tra microservizi; riferimento tecnico de facto per il team.",
-          "Laravel 12 su MySQL 8 con front end Vue 3, code e job schedulati su Redis, test suite PHPUnit / Pest, deploy su AWS e server Linux tramite pipeline CI/CD.",
-          "Attualmente sto definendo un'esperienza cliente potenziata dall'AI per il flusso di acquisto."
+          "In un team composto da 4 persone ho sviluppato da zero un sito di vendita diretta di polizze auto, occupandomi principalmente del backend. Oggi la piattaforma gestisce oltre €30M di premi annui ed è in continua crescita.",
+          "Lo stack: Laravel 12 su MySQL 8 con frontend Vue 3, queue e scheduled job su Redis, test suite PHPUnit / Pest, deploy su AWS e server Linux tramite pipeline CI/CD.",
+          "Al momento sto progettando un flusso d'acquisto che usa l'AI per migliorare l'esperienza utente'."
         ]
       },
       "si2001": {
@@ -124,44 +123,44 @@
         "role": "Customer Operations – Provisioning",
         "location": "Consulenza per Si2001 SpA",
         "points": [
-          "In un team di 3, ho progettato e sviluppato gli strumenti del dipartimento, al servizio di migliaia di clienti al giorno.",
-          "Dashboard di reportistica, applicazioni di back-office e processi schedulati per le notifiche ai tecnici sul campo in tutta Italia."
+          "In un team di 3 persone ho progettato e sviluppato i tool interni del reparto, usati ogni giorno per servire migliaia di clienti.",
+          "Tra questi: dashboard di reportistica, applicazioni di back office e scheduled job che inviano notifiche ai tecnici sul campo in tutta Italia."
         ]
       },
       "exage": {
         "role": "Analista Tecnico",
         "location": "Consulenza per Si2001 SpA · 1 mese",
         "points": [
-          "Analisi tecnica, dalla specifica funzionale al design tecnico, per un sistema IVR di prenotazione appuntamenti."
+          "Analisi tecnica di un sistema IVR per la prenotazione degli appuntamenti, dalla specifica funzionale fino al technical design."
         ]
       },
       "si2001Internal": {
         "role": "Software Engineer",
         "location": "Si2001 SpA · Interno · 1 mese",
         "points": [
-          "Corso Java interno e sviluppo di software interno."
+          "Formazione interna su Java e sviluppo di software ad uso interno."
         ]
       },
       "interteck": {
         "role": "Full Stack Web Developer",
         "location": "Messina, Italia",
         "points": [
-          "Uno dei due sviluppatori su progetti paralleli: il restyling del sito aziendale con un nuovo e-commerce, la rete aziendale e il software delle \"Case dell'Acqua\", i distributori d'acqua prodotto di punta (Visual Basic, C#)."
+          "Ero uno dei due sviluppatori dell'azienda e seguivo più progetti in parallelo: il restyling del sito con un nuovo e-commerce, la rete aziendale e il software delle \"Case dell'Acqua\", i distributori d'acqua di punta dell'azienda (Visual Basic, C#)."
         ]
       },
       "break": {
         "role": "Pausa professionale",
-        "location": "Trasferimento all'estero",
+        "location": "Periodo all'estero",
         "points": [
-          "Trasferito in Australia per raggiungere la fluenza professionale in inglese (oggi C1)."
+          "Mi sono trasferito in Australia per portare il mio inglese a un livello professionale (oggi C1)."
         ]
       },
       "artebianca": {
         "role": "Full Stack Web Developer",
         "location": "Messina, Italia",
         "points": [
-          "Ho digitalizzato le operazioni di magazzino progettando e sviluppando un gestionale su misura per i principali flussi di magazzino.",
-          "In seguito ho preso in carico l'IT aziendale: configurazione della rete e software gestionale interno in PHP e Java."
+          "Ho digitalizzato la gestione del magazzino progettando e sviluppando un gestionale su misura.",
+          "In seguito mi sono occupato di tutto l'IT aziendale, dalla configurazione della rete ai gestionali interni in PHP e Java."
         ]
       },
       "provy": {
@@ -169,7 +168,7 @@
         "location": "Messina, Italia",
         "points": [
           "Ho sviluppato \"Callstation\", un sistema di gestione di chiamate, contratti e operatori per call center outbound, basato su LAMP e Java e compatibile con qualsiasi PBX Asterisk.",
-          "Nel 2010 ho migrato il centralino in cloud."
+          "Nel 2010 ho curato la migrazione del centralino in cloud."
         ]
       }
     }
@@ -177,22 +176,22 @@
   "terminal": {
     "help": {
       "title": "Comandi disponibili:",
-      "whoami": "mostra profilo",
-      "ls": "elenca contenuto directory",
+      "whoami": "mostra il profilo",
+      "ls": "elenca il contenuto della directory",
       "cd": "cambia directory",
-      "pwd": "mostra directory corrente",
-      "cat": "mostra info e competenze",
-      "experience": "mostra esperienza lavorativa",
-      "contact": "mostra contatti",
-      "projects": "sfoglia progetti GitHub",
-      "echo": "stampa testo",
-      "date": "mostra data e ora corrente",
-      "clear": "pulisci il terminale",
-      "lang": "cambia lingua"
+      "pwd": "mostra la directory corrente",
+      "cat": "mostra informazioni e competenze",
+      "experience": "mostra l'esperienza lavorativa",
+      "contact": "mostra i contatti",
+      "projects": "sfoglia i progetti su GitHub",
+      "echo": "stampa un testo",
+      "date": "mostra data e ora correnti",
+      "clear": "pulisce il terminale",
+      "lang": "cambia la lingua"
     },
     "whoami": "Raffaele Longo Elia — Senior Software Engineer (PHP · Laravel · Vue) · Area di Milano, Italia · disponibile per ruoli full-remote in tutta l'UE",
     "about": {
-      "intro": "Senior Software Engineer con 16 anni di esperienza nello sviluppo di applicazioni web in PHP, gli ultimi 7 focalizzati su Laravel, Vue e architettura di sistema. Seguo le funzionalità end to end: analisi, modello dati, API, front end, test automatici e deploy.",
+      "intro": "Senior Software Engineer: sviluppo applicazioni web in PHP da 16 anni e negli ultimi 7 mi sono concentrato su Laravel, Vue e system architecture. Seguo le feature end-to-end: analisi, data model, API, frontend, test automatici e deploy.",
       "skillsTitle": "Competenze tecniche:",
       "skills": [
         {
@@ -201,7 +200,7 @@
         },
         {
           "title": "Backend",
-          "items": "Laravel 12, API REST, microservizi, code e job schedulati, Redis, PHPUnit / Pest"
+          "items": "Laravel 12, API REST, microservizi, queue e scheduled job, Redis, PHPUnit / Pest"
         },
         {
           "title": "Frontend",
@@ -209,7 +208,7 @@
         },
         {
           "title": "Database",
-          "items": "MySQL 8, PostgreSQL, modellazione dati relazionale"
+          "items": "MySQL 8, PostgreSQL, data modeling relazionale"
         },
         {
           "title": "Cloud & DevOps",
@@ -222,7 +221,7 @@
       ]
     },
     "projects": {
-      "loading": "Recupero dei repository GitHub...",
+      "loading": "Caricamento dei repository da GitHub...",
       "empty": "Nessun repository pubblico trovato"
     },
     "git": {
@@ -239,7 +238,7 @@
     "cd": {
       "openingRepo": "Apertura di {repo} su GitHub..."
     },
-    "langChanged": "Lingua cambiata"
+    "langChanged": "Lingua aggiornata"
   },
   "footer": {
     "about": "Chi sono",
@@ -247,35 +246,35 @@
   },
   "aboutPage": {
     "seoTitle": "Chi è Raffaele Longo Elia — Senior Software Engineer",
-    "seoDescription": "Chi è Raffaele Longo Elia: Senior Software Engineer nell'area di Milano con 16 anni di PHP, gli ultimi 7 su Laravel, Vue e architettura di sistema.",
+    "seoDescription": "Chi è Raffaele Longo Elia: Senior Software Engineer nell'area di Milano, sviluppa in PHP da 16 anni e negli ultimi 7 lavora soprattutto con Laravel, Vue e system architecture.",
     "eyebrow": "chi sono",
     "title": "Chi sono",
-    "more": "La timeline completa, con stack e date, è nella",
-    "moreLink": "sezione esperienza della home page",
+    "more": "La timeline completa, con stack e date, si trova nella",
+    "moreLink": "sezione Esperienza della home page",
     "sections": [
       {
         "heading": "Chi è Raffaele Longo Elia?",
         "paragraphs": [
-          "Sono un Senior Software Engineer che vive nell'area di Milano. Lavoro come software engineer dal 2010, sviluppando applicazioni web soprattutto in PHP, e negli ultimi sette anni mi sono concentrato su Laravel, Vue e architettura di sistema. Seguo le funzionalità end to end: analisi, modello dati, API, front end, test automatici e deploy."
+          "Sono un Senior Software Engineer che vive nell'area di Milano. Lavoro come software engineer dal 2010, sviluppando soprattutto applicazioni web in PHP, e negli ultimi sette anni mi sono concentrato su Laravel, Vue e system architecture. Seguo le feature end-to-end: analisi, data model, API, frontend, test automatici e deploy."
         ]
       },
       {
         "heading": "Su cosa lavoro oggi?",
         "paragraphs": [
-          "Da settembre 2024 sono Software Engineer in Bene Assicurazioni a Seregno. In un team di quattro persone abbiamo costruito da zero un sito di assicurazione auto diretta, in cui sono l'ingegnere focalizzato sul backend. Oggi la piattaforma gestisce oltre €30M di premi annui ed è ancora in crescita. Sono il principale riferimento per l'architettura: convenzioni del codice, design delle API REST e confini dei microservizi, su Laravel 12, MySQL 8, Vue 3, Redis e AWS."
+          "Da settembre 2024 lavoro come Software Engineer in Bene Assicurazioni, a Seregno. Con un team di quattro persone abbiamo realizzato da zero un sito di vendita diretta di polizze auto, in cui mi occupo principalmente del backend. Oggi la piattaforma gestisce oltre €30M di premi annui ed è ancora in crescita. Sono il principale riferimento per l'architettura (code convention, design delle REST API e confini tra microservizi) su uno stack Laravel 12, MySQL 8, Vue 3, Redis e AWS."
         ]
       },
       {
         "heading": "Cosa ho fatto prima?",
         "paragraphs": [
-          "Dal 2017 al 2024 ho lavorato come consulente per Si2001 SpA, trascorrendo sette anni su un progetto enterprise nel reparto Customer Operations – Provisioning di Vodafone Italia. In un team di tre persone abbiamo progettato e sviluppato gli strumenti del reparto, che servono migliaia di clienti al giorno: dashboard di reportistica, applicativi di back office e processi schedulati che avvisano i tecnici sul campo in tutta Italia.",
-          "La mia carriera è iniziata a Messina come sviluppatore full stack. In Provy, dal 2008, ho sviluppato Callstation, un sistema di gestione per call center integrato con Asterisk PBX, e nel 2010 ho portato il PBX in cloud. In Artebianca ho digitalizzato le operazioni di magazzino con un gestionale su misura. Dopo una pausa in Australia per raggiungere un inglese professionale, sono entrato in Interteck, dove ho lavorato al software delle Case dell'Acqua."
+          "Dal 2017 al 2024 ho lavorato come consulente per Si2001 SpA, trascorrendo sette anni su un progetto enterprise nel reparto Customer Operations – Provisioning di Vodafone Italia. In un team di tre persone abbiamo progettato e sviluppato i tool del reparto, usati ogni giorno per servire migliaia di clienti: dashboard di reportistica, applicazioni di back office e scheduled job che avvisano i tecnici sul campo in tutta Italia.",
+          "La mia carriera è iniziata a Messina come sviluppatore full stack. In Provy, dal 2008, ho sviluppato Callstation, un sistema di gestione per call center integrato con Asterisk PBX, e nel 2010 ho portato il PBX in cloud. In Artebianca ho digitalizzato le operazioni di magazzino con un gestionale su misura. Dopo un periodo in Australia per portare il mio inglese a livello professionale, sono entrato in Interteck, dove ho lavorato al software delle Case dell'Acqua."
         ]
       },
       {
-        "heading": "Come mi piace lavorare?",
+        "heading": "Come lavoro?",
         "paragraphs": [
-          "Mi piace seguire una funzionalità dall'inizio alla fine: capire il problema di business, modellare i dati, progettare le API, costruire il front end in Vue, coprirla con test PHPUnit o Pest e rilasciarla tramite CI/CD. Nel mio team attuale sono il riferimento tecnico di fatto, quindi buona parte del mio lavoro consiste nel definire convenzioni che mantengano il codice coerente mentre cresce."
+          "Mi piace seguire una feature end-to-end: capire il problema di business, definire il data model, progettare le API, sviluppare il frontend in Vue, coprirla con test PHPUnit o Pest e portarla in produzione con la pipeline CI/CD. Nel mio team attuale sono il riferimento tecnico di fatto, quindi buona parte del mio lavoro consiste nel definire convenzioni che mantengano il codice coerente mentre cresce."
         ]
       },
       {
@@ -291,9 +290,9 @@
         ]
       },
       {
-        "heading": "Sono disponibile per nuovi ruoli?",
+        "heading": "Sono aperto a nuove opportunità?",
         "paragraphs": [
-          "Sì. Vivo nell'area di Milano e sono disponibile per ruoli full-remote in tutta l'UE. Parlo italiano come lingua madre e inglese a livello C1. Il modo più rapido per contattarmi è LinkedIn, mentre i miei progetti open source sono su GitHub; trovi entrambi i link in fondo a ogni pagina."
+          "Sì. Vivo nell'area di Milano e sono disponibile per ruoli full-remote in tutta l'UE. L'italiano è la mia lingua madre e parlo inglese a livello C1. Il modo più rapido per contattarmi è LinkedIn, mentre i miei progetti open source sono su GitHub; trovi entrambi i link in fondo a ogni pagina."
         ]
       }
     ]
@@ -308,7 +307,7 @@
       {
         "heading": "Chi gestisce questo sito?",
         "paragraphs": [
-          "Questo sito è il portfolio personale di Raffaele Longo Elia, che ne è il responsabile. Non ha account utente, moduli di contatto né newsletter, quindi non ti chiede mai di inserire dati personali."
+          "Questo sito è il portfolio personale di Raffaele Longo Elia, che è anche il titolare del trattamento dei dati. Non ha account utente, moduli di contatto né newsletter, quindi non ti chiede mai di inserire dati personali."
         ]
       },
       {
@@ -318,15 +317,15 @@
         ]
       },
       {
-        "heading": "Quali cookie e quale local storage vengono usati?",
+        "heading": "Quali cookie e quale local storage usa il sito?",
         "paragraphs": [
-          "Un solo cookie, i18n_redirected, ricorda la lingua che hai scelto così da non reindirizzarti mai contro la tua scelta. Il browser può inoltre conservare una preferenza di visualizzazione (modalità colore) nel local storage. Entrambi sono strettamente tecnici, restano sul tuo dispositivo e non servono a identificarti."
+          "Un solo cookie, i18n_redirected, ricorda la lingua che hai scelto così il sito non ti reindirizza mai a una lingua diversa. Il browser può inoltre conservare una preferenza di visualizzazione (tema chiaro o scuro) nel local storage. Entrambi sono strettamente tecnici, restano sul tuo dispositivo e non servono a identificarti."
         ]
       },
       {
         "heading": "Quali terze parti ricevono dati?",
         "paragraphs": [
-          "Il comando projects del terminale carica l'elenco dei repository pubblici direttamente dalle API di GitHub (api.github.com). Per farlo il tuo browser si collega a GitHub, che riceve il tuo indirizzo IP e i dati del browser secondo la propria privacy policy. I link a GitHub e LinkedIn aprono quei siti, che applicano le proprie policy."
+          "Il comando projects del terminale carica l'elenco dei repository pubblici direttamente dalle API di GitHub (api.github.com). Per farlo il tuo browser si collega a GitHub, che riceve il tuo indirizzo IP e alcune informazioni sul browser, trattandole secondo la propria privacy policy. I link a GitHub e LinkedIn aprono quei siti, ciascuno soggetto alla propria privacy policy."
         ]
       },
       {
@@ -338,7 +337,7 @@
       {
         "heading": "Quali sono i miei diritti?",
         "paragraphs": [
-          "In base al GDPR puoi chiedere l'accesso, la rettifica o la cancellazione dei dati personali che ti riguardano. Poiché questo sito non raccoglie direttamente dati personali, le richieste sui dati conservati da GitHub, LinkedIn o OVH vanno rivolte a quei provider; per tutto il resto puoi contattarmi su LinkedIn."
+          "Ai sensi del GDPR puoi chiedere l'accesso, la rettifica o la cancellazione dei dati personali che ti riguardano. Poiché questo sito non raccoglie direttamente dati personali, le richieste sui dati conservati da GitHub, LinkedIn o OVH vanno rivolte a quei provider; per tutto il resto puoi contattarmi su LinkedIn."
         ]
       }
     ]

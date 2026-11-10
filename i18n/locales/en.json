@@ -1,6 +1,6 @@
 {
   "hero": {
-    "welcome": "Raffaele Longo Elia — Senior Software Engineer. 16 years of PHP, the last 7 on Laravel, Vue and system architecture.",
+    "welcome": "Raffaele Longo Elia — Senior Software Engineer. 16 years of PHP, the last 7 focused on Laravel, Vue and system architecture.",
     "hint": "Type '{command}' to see available commands."
   },
   "nuxtSiteConfig": {
@@ -77,7 +77,7 @@
       "title": "Creator of",
       "titleAccent": "TallyPal.",
       "tagline": "Track money. Share tallies. Stay in sync.",
-      "intro": "TallyPal is a personal finance tracker I created and develop. You create tallies, shared ledgers you own and control, log income and expenses with category and currency, invite people by email and split expenses with custom percentages per member. Next to the web app there is a full REST API, so third-party services and native clients can integrate with it.",
+      "intro": "TallyPal is a personal finance tracker I created and develop. You create tallies, shared ledgers you own and control, log income and expenses with category and currency, invite people by email and split expenses with custom percentages per member.",
       "features": [
         {
           "title": "Tallies",
