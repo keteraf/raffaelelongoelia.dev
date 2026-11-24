@@ -20,7 +20,7 @@
       "experience": "Experience",
       "projects": "Projects",
       "contact": "Contact",
-      "tallypal": "TallyPal"
+      "nickstick": "Nickstick"
     },
     "hero": {
       "eyebrow": "portfolio",
@@ -72,12 +72,12 @@
       "titleAccent": "something.",
       "text": "I am open to full-remote Senior Software Engineer roles across the EU, especially on PHP, Laravel and Vue products where I can own features end to end and help shape the architecture. The quickest way to reach me is LinkedIn; my open-source work is on GitHub."
     },
-    "tallypal": {
+    "nickstick": {
       "eyebrow": "side project",
       "title": "Creator of",
-      "titleAccent": "TallyPal.",
+      "titleAccent": "Nickstick.",
       "tagline": "Track money. Share tallies. Stay in sync.",
-      "intro": "TallyPal is a personal finance tracker I created and develop. You create tallies, shared ledgers you own and control, log income and expenses with category and currency, invite people by email and split expenses with custom percentages per member.",
+      "intro": "Nickstick is a personal finance tracker I created and develop. You create tallies, shared ledgers you own and control, log income and expenses with category and currency, invite people by email and split expenses with custom percentages per member.",
       "features": [
         {
           "title": "Tallies",
@@ -96,7 +96,7 @@
           "text": "Full API for external integrations and native clients."
         }
       ],
-      "visit": "Visit tallypal.it"
+      "visit": "Visit nickstick.it"
     }
   },
   "experience": {

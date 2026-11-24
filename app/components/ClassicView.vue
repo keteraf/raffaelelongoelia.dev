@@ -107,35 +107,35 @@
                 </div>
             </section>
 
-            <!-- TallyPal -->
+            <!-- Nickstick -->
             <section
-                id="tallypal"
+                id="nickstick"
                 class="scroll-mt-14 border-b border-site-border/60"
             >
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20">
                     <p class="font-mono text-sm text-site-accent tracking-widest mb-3">
-                        ~ {{ t('classic.tallypal.eyebrow') }}
+                        ~ {{ t('classic.nickstick.eyebrow') }}
                     </p>
                     <h2 class="font-display font-extrabold tracking-tight text-3xl md:text-5xl">
-                        {{ t('classic.tallypal.title') }}
-                        <span class="italic text-site-accent">{{ t('classic.tallypal.titleAccent') }}</span>
+                        {{ t('classic.nickstick.title') }}
+                        <span class="italic text-site-accent">{{ t('classic.nickstick.titleAccent') }}</span>
                     </h2>
                     <p class="mt-4 font-mono text-sm text-site-muted">
-                        {{ t('classic.tallypal.tagline') }}
+                        {{ t('classic.nickstick.tagline') }}
                     </p>
                     <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
                         <div class="space-y-4 text-site-muted leading-relaxed">
-                            <p>{{ t('classic.tallypal.intro') }}</p>
+                            <p>{{ t('classic.nickstick.intro') }}</p>
                             <a
-                                href="https://tallypal.it"
+                                href="https://nickstick.it"
                                 target="_blank"
                                 rel="noopener"
                                 class="inline-block mt-2 px-5 py-2.5 rounded-lg bg-site-accent text-site-on-accent text-sm font-semibold hover:brightness-110 transition"
-                            >{{ t('classic.tallypal.visit') }} →</a>
+                            >{{ t('classic.nickstick.visit') }} →</a>
                         </div>
                         <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
                             <div
-                                v-for="feature in tallypalFeatures"
+                                v-for="feature in nickstickFeatures"
                                 :key="feature.title"
                                 class="rounded-xl border border-site-border bg-site-surface p-6"
                             >
@@ -257,7 +257,7 @@ const { t, tm, rt } = useI18n()
 
 const skills = computed(() => (tm('terminal.about.skills') as { title: unknown, items: unknown }[])
     .map(s => ({ title: rt(s.title as string), items: rt(s.items as string) })))
-const tallypalFeatures = computed(() => (tm('classic.tallypal.features') as { title: unknown, text: unknown }[])
+const nickstickFeatures = computed(() => (tm('classic.nickstick.features') as { title: unknown, text: unknown }[])
     .map(f => ({ title: rt(f.title as string), text: rt(f.text as string) })))
 const stats = computed(() => (tm('classic.hero.stats') as { value: unknown, label: unknown }[])
     .map(s => ({ value: rt(s.value as string), label: rt(s.label as string) })))

@@ -20,7 +20,7 @@
       "experience": "Esperienza",
       "projects": "Progetti",
       "contact": "Contatti",
-      "tallypal": "TallyPal"
+      "nickstick": "Nickstick"
     },
     "hero": {
       "eyebrow": "portfolio",
@@ -72,12 +72,12 @@
       "titleAccent": "insieme.",
       "text": "Cerco ruoli full-remote come Senior Software Engineer in tutta l'UE, in particolare su prodotti PHP, Laravel e Vue in cui possa seguire le feature end-to-end e contribuire all'architettura. Il modo più rapido per contattarmi è LinkedIn; i miei progetti open source sono su GitHub."
     },
-    "tallypal": {
+    "nickstick": {
       "eyebrow": "progetto personale",
       "title": "Ho creato",
-      "titleAccent": "TallyPal.",
+      "titleAccent": "Nickstick.",
       "tagline": "Tieni traccia delle spese. Dividi i conti. Resta sempre in sync.",
-      "intro": "TallyPal è un'app di finanza personale che ho ideato. Puoi creare dei tally (conteggi) condivisi su cui hai il pieno controllo. Puoi annotare entrate e uscite con categoria e valuta, invitare altre persone via email e dividere le spese con percentuali diverse per ciascun membro.",
+      "intro": "Nickstick è un'app di finanza personale che ho ideato. Puoi creare dei tally (conteggi) condivisi su cui hai il pieno controllo. Puoi annotare entrate e uscite con categoria e valuta, invitare altre persone via email e dividere le spese con percentuali diverse per ciascun membro.",
       "features": [
         {
           "title": "Tally",
@@ -96,7 +96,7 @@
           "text": "Una REST API completa per integrazioni esterne e client nativi."
         }
       ],
-      "visit": "Visita tallypal.it"
+      "visit": "Visita nickstick.it"
     }
   },
   "experience": {

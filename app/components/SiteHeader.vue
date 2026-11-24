@@ -132,7 +132,7 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 
-const sections = ['about', 'experience', 'tallypal', 'projects', 'contact'] as const
+const sections = ['about', 'experience', 'nickstick', 'projects', 'contact'] as const
 
 const menuOpen = ref(false)
 const route = useRoute()
